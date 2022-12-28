@@ -1,0 +1,138 @@
+
+#ventana-nombre{ 
+    width: 30%;
+    height: 70%; 
+    background-color: black; 
+    border-style: ridge;
+    border-color: black ; 
+    border-radius: 50px;  
+    color: aliceblue;
+    font-size: 370%;;
+    position:relative;
+    font-family: 'Play', sans-serif;
+    box-shadow: 10px 10px 10px black;
+    margin-top: 5%;
+    margin-right: 10%;
+}
+
+
+nav{background: #0F2027;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-bottom-style: ridge ;
+  border-bottom-color: #0F2027; 
+}
+
+#inicio{
+  background-image: url("https://fondosmil.com/fondo/54336.png");
+  background-size: cover;
+  padding-bottom: 5%;
+  padding-top: 5%;
+  background-attachment: fixed;
+}
+
+#photo-section{
+  margin-bottom: 5%;
+}
+
+.carta{margin-bottom: 5%; background: #155263; padding-right: -10px;}
+
+#titulos{
+    margin-left: -0.4cm;
+    margin-right: -5cm;
+    border-color:black;
+    background: #F7971E;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFD200, #F7971E);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFD200, #F7971E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin-bottom: 2cm;
+    border-top-style:ridge;
+    border-bottom-style: ridge;
+    border-right-style: ridge;
+    border-left-style: ridge;
+    padding-bottom: 25px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    font-size: xx-large;font-weight:600;
+    display: inline-block;
+}
+
+.carta .container-fluid{
+    border-color:black;
+    background: #F7971E;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFD200, #F7971E);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFD200, #F7971E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin-left: -0.4cm;
+    margin-right: 50cm;
+    margin-bottom: 2cm;
+    border-top-style:ridge;
+    border-bottom-style: ridge;
+    border-right-style: ridge;
+    padding-bottom: 25px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.circular-landscape{
+  position: relative;
+  width: 40%;
+  height: 80%;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-top: 20px;
+  margin-bottom: -50px;
+  border-style: ridge;
+  border-color: #0F2027;
+}
+
+.circular-landscape img{
+  width: 100%;
+  height: 112%;
+}
+
+.fotoeducacion{vertical-align: middle;width: 30%;float: right;}
+
+#cards-space{ background: #0f0c29;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+  border-top-width: 10px; border-top-color: black; border: top right radius -15px;
+  background-attachment: fixed;
+  border-top-style: ridge ;
+  border-bottom-style: ridge ;
+  border-bottom-color: #1F1C18;
+}
+
+div .first-row{background-color: #FFC93C;}
+
+div .table{border-color: black; margin-left: -10px; margin-right: -10px;}
+
+#separacion {
+  background-color: black;
+  width:0% ;
+}
+
+div.col .progress{
+  margin-top: 8%;
+}
+
+div.carta .row{  
+  border-bottom-style: solid;
+  border-bottom-color: black;
+}
+
+#descripcion {
+  resize: none;
+}
+
+.footer{
+  background: #0F2027;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-top-style: ridge ;
+  border-bottom-style: ridge ;
+  border-top-color: #1F1C18;
+  border-bottom-color:#1F1C18;
+  font-family: 'Times New Roman', Times, serif;
+  color: white;  
+}
+
