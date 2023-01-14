@@ -1,101 +1,108 @@
 
-#ventana-nombre{ 
-    width: 60%;
-    height: 70%; 
-    background-color: black; 
-    border-style: ridge;
-    border-color: black ; 
-    border-radius: 50px;  
-    color: aliceblue;
-    font-size: 330%;;
-    position:relative;
-    font-family: 'Play', sans-serif;
-    box-shadow: 10px 10px 10px black;
-    margin-top: 5%;
-    margin-right: 30%;
-}
+    @media screen and (max-width: 767px) {
+    
+  }
 
-nav{background: #0F2027;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  border-bottom-style: ridge ;
-  border-bottom-color: #0F2027; 
-}
-
-#inicio{
-  background-image: url("https://fondosmil.com/fondo/54336.png");
-  background-size: 100%;
-  padding-bottom: 5%;
-  padding-top: 5%; 
-}
-
-#photo-section{
-  margin-bottom: 5%;
-}
-
-#titulo1{
-  background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/003.webp');
-  padding: 15%;
-  background-attachment: fixed;
-  border-bottom-style:solid;
-  border-bottom-color: black ;
-  border-top-style:solid;
-  border-top-color: black ;
-}
-
-.circular-landscape{
-  position: relative;
-  width: 60%;
-  height: 80%;
-  overflow: hidden;
-  border-radius: 50%;
-  margin-top: 20px;
-  margin-bottom: -50px;
-  border-style: ridge;
-  border-color: #0F2027;
-  margin-left: 30%;
-}
-
-.circular-landscape img{
+  nav{background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-bottom-style: ridge ;
+    border-bottom-color: #0F2027; 
+  }
+#banner img{
   width: 100%;
-  height: 100%;
 }
+  li:hover button{
+    margin-top: 5px;
+  }
+  
+  #titulo1{
+    background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/003.webp');
+    padding: 15%;
+    background-attachment: fixed;
+    border-bottom-style:solid;
+    border-bottom-color: black ;
+    border-top-style:solid;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+    border-top-color: black ;
+    transition-property: linear;
+    transition-duration: 2s;
+  }
 
-.separador-fila{
-  background-color: #FFC93C;
-}
+  #parrafpacercade{
+    transition: .5s linear;
+  }
 
-.fotoeducacion{vertical-align: middle;width: 30%;float: right;}
+  .circular-landscape{
+    position: relative;
+    width: 65%;
+    height: 70%;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-top: 20px;
+    margin-bottom: 5%;
+    border-style: ridge;
+    border-color: #0F2027;
+    margin-left: 30%;
+    align-items: center;
+  }
 
-div .first-row{background-color: #FFC93C;}
+  .profile {
+    align-items: center;
+    margin-top: 30%;
+    width: 50%;
+    height: 50%;
+    position: relative;
+  }
+  .circular-landscape img{
+    width: 100%;
+    height: 90%;
+  }
 
-div .table{border-color: black; margin-left: -10px; margin-right: -10px;}
+  .separador-fila{
+    background-color: #FFC93C;
+  }
 
-#separacion {
-  background-color: black;
-  width:0% ;
-}
+  .fotoeducacion{vertical-align: middle;width: 30%;float: right;}
+ 
+  div.col .progress{
+    margin-top: 8%;
+  }
 
-div.col .progress{
-  margin-top: 8%;
-}
+  div.carta .row{  
+    border-bottom-color: black;
+  }
 
-div.carta .row{  
-  border-bottom-color: black;
-}
+  #descripcion {
+    resize: none;
+  }
 
-#descripcion {
-  resize: none;
-}
+  #proyectos{
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+  }
+  
+  #contacto {
+    background-color: #1F1C18;
+    color: white;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    height: fit-content;
+  }
 
-.footer{
-  background: #0F2027;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  border-top-style: ridge ;
-  border-bottom-style: ridge ;
-  border-top-color: #1F1C18;
-  border-bottom-color:#1F1C18;
-  font-family: 'Times New Roman', Times, serif;
-  color: white;  
-}
+  .footer{
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-top-style: ridge ;
+    border-bottom-style: ridge ;
+    border-top-color: #1F1C18;
+    border-bottom-color:#1F1C18;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;  
+  }
+

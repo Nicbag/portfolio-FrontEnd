@@ -4,9 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Portofili-Bruno Bagnato/login</title>
+
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            background-image: url(./fotofondoiniciosesion.jpg);
+            background-size: cover;
+            
+        }
+        .card{
+            height: 50%;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            border-style: solid;
+            box-shadow: 24%;  
+        }
+        #cuadro{
+            display: flex;
+            justify-content: center;
+            margin-top: 10%;
+        }
+        form{
+            margin-bottom: 5%;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="container align-content-center" id="cuadro">
+        <div class="card">
+            <form>
+                <h1 class="display-2" align="center">Iniciar Sesión</h1>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label display-6">Usuario</label>
+                    <input type="usuario" class="form-control" id="usuario">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label display-6">Contraseña</label>
+                    <input type="password" class="form-control" id="contra">
+                </div>
+                <button class="btn btn-success"> Ingresar</button>
+            </form>
+        </div>
+    </div>
+    <script src="libs/bootstrap/js/bootstrap.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.esm.js"></script>    
 </body>
 </html>
