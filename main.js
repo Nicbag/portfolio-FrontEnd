@@ -16,6 +16,43 @@
         })
     }
 
+// EDIT PERFIL
+    function cambiarParrafoPerfil(){
+        document.getElementById("edit-perfil1").style.display="block";
+        document.getElementById("edit-perfil2").style.display="block";
+        document.getElementById("edit-perfil3").style.display="block";
+        
+    }
+    function editartextoEducacion(linea,text){
+        if(linea==1){
+            document.getElementById("text-perfil1").innerText= text;
+        }
+        if(linea==2){
+            document.getElementById("text-perfil2").innerText= text;
+        }
+        if(linea==3){
+            document.getElementById("text-perfil3").innerText= text;
+        }
+    }
+
+    function guardartextoEducacion(){
+        
+        let text1 = document.getElementById("edit-perfil1");
+        let text2 = document.getElementById("edit-perfil2");
+        let text3 = document.getElementById("edit-perfil3");
+        let text=[text1,text2,text3];
+
+        for (j in text) {
+            text[j].addEventListener("keyup",(e)=>{
+                if(e.key=="Enter"){
+                    text1.style.display="none";
+                    text2.style.display="none";
+                    text3.style.display="none";
+                }   
+            })
+        }
+
+    }   
 //FUNCIONES EDIT EDUCACION
 
     function cambiarParrafoEducacion(num){
@@ -255,3 +292,56 @@
             }
         }
     }
+
+// EDITS IDIOMAS
+    function cambiaridioma(num){
+        for(let i=1;i<=20;i++){
+            if(num==i){
+                document.getElementById("edit-idioma"+i.toString()+"-1").style.display="block";
+                document.getElementById("edit-idioma"+i.toString()+"-2").style.display="block";
+                document.getElementById("edit-progress"+i.toString()).style.display="block";
+            }
+        }
+    }
+
+    function editartextoIdioma(num,linea,text){
+        for(let i=1;i<=20;i++){
+            if(num==i){
+                if(linea==1){
+                document.getElementById("text-idioma"+i.toString()+"-1").innerText= text;
+                }
+                if(linea==2){
+                    document.getElementById("text-idioma"+i.toString()+"-2").innerText= text;    
+                }
+            }
+        }
+    }
+    function editarbarraIdioma(num, wid){
+        for(let i=1;i<=20;i++){
+            if(num==i){
+                document.getElementById("text-progress"+i.toString()).style.width=wid.toString()+"%";
+            }
+        }
+    }
+
+    function guardartextoIdioma(num){
+        for(let i=1;i<=20;i++){
+            if(num==i){
+                let text1= document.getElementById("edit-idioma"+i.toString()+"-1");
+                let text2= document.getElementById("edit-idioma"+i.toString()+"-2");
+                let barra= document.getElementById("edit-progress"+i.toString());
+                idioma=[text1,text2,barra];
+
+                for(j in idioma){
+                    idioma[j].addEventListener("keyup",(e)=>{
+                        if(e.key=="Enter"){
+                            text1.style.display="none";
+                            text2.style.display="none";
+                            barra.style.display="none";
+                        }
+                    })  
+                }
+            }
+        }
+    }
+
