@@ -23,7 +23,7 @@
         document.getElementById("edit-perfil3").style.display="block";
         
     }
-    function editartextoEducacion(linea,text){
+    function editartextoPerfil(linea,text){
         if(linea==1){
             document.getElementById("text-perfil1").innerText= text;
         }
@@ -35,7 +35,7 @@
         }
     }
 
-    function guardartextoEducacion(){
+    function guardartextoPerfil(){
         
         let text1 = document.getElementById("edit-perfil1");
         let text2 = document.getElementById("edit-perfil2");
