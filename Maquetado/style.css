@@ -20,7 +20,7 @@
       }
       
       .fa{
-        background-image: url(./assets/edit-alt-solid-24.png);
+        background-image: url("./assets/edit-alt-solid-24.png");
         background-repeat: no-repeat;
         background-position: center;
         background-color: transparent;
@@ -168,7 +168,7 @@
   }
 
   .fa{
-    background-image: url("./edit-alt-solid-24.png");
+    background-image: url("./assets/edit-alt-solid-24.png");
     background-repeat: no-repeat;
     background-position: center;
     background-color: transparent;
