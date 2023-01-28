@@ -1,0 +1,64 @@
+<div class="carta">
+    <div class="container-fluid" id="titulo1" >
+        <div class="row justify-content-sm-center text-center">
+            <div class="col-sm-10 col-md-8 col-sm-6" data-aos="fade-up">
+                <h1 class="dispay-1 text-white">
+                    <span class="small"> Full stack developer</span>
+                    <br>
+                    <span class="display-1"> Acerca de Mí </span>
+                </h1>
+            </div>
+        </div>
+    </div> 
+    
+    <br>
+    <br>
+
+    <div class="container-fluid"> 
+        <div class="row">
+            <div class="col-lg-4 col-sm-12 col-md-5">
+                <div class="container" id="profile" style="display: flex;justify-content: center;">
+                    <div class="circular-landscape">
+                        <img  class="profile-photo" [src]="datosperfil.fotoPerfil" alt="hola">
+                    </div>
+                </div>
+                <div class="btn-edit" onclick="cambiarParrafoPerfil()">
+                    <a href="#text-perfil1" class="btn-right">
+                        <button class="fa fa-pen"></button>
+                    </a>
+                </div> 
+                <h1 id="text-perfil1" class="display-3">{{datosperfil.nombre}}</h1>
+                <div>
+                    <input type="text"id="edit-perfil1" oninput="editartextoPerfil(1,this.value)" onkeydown="guardartextoPerfil()" style="display:none">
+                </div>
+                <h2 id="text-perfil2">{{datosperfil.actualidad}}</h2>
+                <div>
+                    <input type="text"id="edit-perfil2" oninput="editartextoPerfil(2,this.value)" onkeydown="guardartextoPerfil()" style="display:none">
+                </div>
+                <h2 id="text-perfil3">{{datosperfil.rubro}}</h2>
+                <div>
+                    <input type="text"id="edit-perfil3" oninput="editartextoPerfil(3,this.value)" onkeydown="guardartextoPerfil()" style="display:none">
+                </div>
+                <h2 id="text-perfil4">{{datosperfil.ciudad}}</h2>    
+            </div>
+
+            <div class="col-lg-8 col-sm-12 col-md-7">
+                <div class="btn-edit" onclick="cambiarParrafoAcercaDe()">
+                    <a href="#text-acercademi" class="btn-right">
+                        <button class="fa fa-pen"></button>
+                    </a>
+                </div>        
+                <div class="justify-content-sm-center text-start" id="parrafoacercade">
+                    <span class="display-6" id="text-acercademi"> {{datosperfil.aboutMe}}</span> 
+                </div>
+                <div>
+                    <input type="text"id="edit-acercademi" oninput="editartextoAcercaDe(this.value)" onkeydown="guardartextoAcercaDe()" style="display:none">
+                </div>
+            </div>
+                
+        </div>     
+    </div> 
+
+    <br>
+    <br> 
+</div>
