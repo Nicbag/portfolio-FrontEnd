@@ -1,0 +1,48 @@
+<form (ngSubmit)="onSubmit()">
+    <div class="form-control">
+        <div>
+            <label for="text" class="display-6">Ingrese Establecimiento</label>
+            <br>
+            <br> 
+            <input type="text" name="text" id="text" placeholder="Nombre institución" [(ngModel)]="institucion">
+        </div>
+        <br>
+        <div>
+            <label for="text" class="display-6">Ingrese especialidad/orientación</label>
+            <br>
+            <br> 
+            <input type="text" name="text" id="text" placeholder="Nombre especialidad" [(ngModel)]="especialidad">
+        </div>
+        <br>
+        <div>
+            <label for="text" class="display-6">Ingrese fecha de inicio</label>
+            <br>
+            <br> 
+            <input type="text" name="text" id="mes" placeholder="Mes" [(ngModel)]="mes[0]">
+            <input type="number" name="number" id="number" placeholder="Año" [(ngModel)]="ano[0]">
+        </div>
+        <br>
+        <div>
+            <label for="text" class="display-6">Ingrese fecha de finalización</label>
+            <br>
+            <br> 
+            <input type="text" name="text" id="mes" placeholder="Mes" [(ngModel)]="mes[1]">
+            <input type="number" name="number" id="number" placeholder="Año" [(ngModel)]="ano[1]">
+        </div>
+        <br>
+        <div>
+            <label for="text" class="display-6">Ingrese link de la foto</label>
+            <br>
+            <br> 
+            <input type="text" name="text" id="foto" placeholder="url" [(ngModel)]="foto">
+            <small>No es obligatoria la foto</small>
+        </div>
+        <br>
+        <div>
+            <input type="submit" class="btn btn-success">
+            
+        </div>
+    </div>    
+    
+</form>
+<br>

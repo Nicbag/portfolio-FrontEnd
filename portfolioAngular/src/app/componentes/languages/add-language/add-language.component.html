@@ -1,0 +1,28 @@
+<form (ngSubmit)="onSubmit()">
+    <div class="form-control">
+        <div>
+            <label for="text" class="display-6">Ingrese nombre ddel Idioma</label>
+            <br>
+            <br> 
+            <input type="text" name="text" id="text" placeholder="Nombre idioma" [(ngModel)]="idioma">
+        </div>
+        <br>
+        <div>
+            <label for="text" class="display-6">Ingrese nivel del idioma</label>
+            <br>
+            <br> 
+            <input type="text" name="text" id="text" placeholder="Nivel idioma(B1,C1,etc)" [(ngModel)]="nivel">
+        </div>
+        <br>
+        <div>
+            <label for="text" class="display-6">Ingrese  el valor del nivel del idioma</label>
+            <br>
+            <br> 
+            <input type="number" name="number" id="text" placeholder="Valor idioma" [(ngModel)]="valor">
+            <small>El rango es de 0 a 100</small>
+        </div>
+        <br>
+        <input type="submit" class="btn btn-success">    
+    </div>     
+</form>
+<br>

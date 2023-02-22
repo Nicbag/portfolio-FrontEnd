@@ -15,6 +15,13 @@ import { FooterComponent } from './componentes/footer/footer.component';
 import { PortfolioService } from "./servicios/portfolio.service";
 
 import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
+import { AddEducationComponent } from './componentes/education/add-education/add-education.component';
+import { AddExperienceComponent } from './componentes/experience/add-experience/add-experience.component';
+import { AddSkillComponent } from './componentes/skills/add-skill/add-skill.component';
+import { AddCourseComponent } from './componentes/courses/add-course/add-course.component';
+import { AddProyectComponent } from './componentes/proyects/add-proyect/add-proyect.component';
+import { AddLanguageComponent } from './componentes/languages/add-language/add-language.component';
 
 @NgModule({
   declarations: [
@@ -29,10 +36,17 @@ import { HttpClientModule } from "@angular/common/http";
     LanguagesComponent,
     ContactComponent,
     FooterComponent,
+    AddEducationComponent,
+    AddExperienceComponent,
+    AddSkillComponent,
+    AddCourseComponent,
+    AddProyectComponent,
+    AddLanguageComponent,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

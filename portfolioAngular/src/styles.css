@@ -1,3 +1,4 @@
+@import "~bootstrap/dist/css/bootstrap.css";
 @media screen and (max-width: 767px) {
     nav{background: #0F2027;  /* fallback for old browsers */
       background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
@@ -58,7 +59,7 @@
       transition-property: linear;
       transition-duration: 2s;
     }
-  
+
     #parrafpacercade{
       transition: .5s linear;
     }
@@ -107,13 +108,6 @@
       resize: none;
     }
   
-    #proyectos{
-      align-content: center;
-      justify-content: center;
-      display: flex;
-      align-items: center;
-      justify-items: center;
-    }
     
     #contacto {
       background-color: #1F1C18;
@@ -167,7 +161,7 @@ nav{background: #0F2027;  /* fallback for old browsers */
 }
 
 .fa{
-  background-image: url("./assets/edit-alt-solid-24.png");
+  background-image: url("src/assets/edit-alt-solid-24.png");
   background-repeat: no-repeat;
   background-position: center;
   background-color: transparent;
@@ -191,6 +185,59 @@ nav{background: #0F2027;  /* fallback for old browsers */
   inset -.2rem -.2rem 1rem #ccc;
 }
 
+#agregar{
+  background-image: url("src/assets/anadir.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  font-weight: 500;
+  color: #444;
+  font-size: 1rem;
+  padding: 1.5rem 1.5rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 1s ease;
+  box-shadow: .5rem .5rem 1rem #ccc, -.5rem -.5rem 1rem #fff;
+  margin-bottom: 2rem;
+  margin-left: 20px;
+
+}
+#agregar:hover{
+  box-shadow: .5rem .5rem 1rem #fff, -.5rem -.5rem 1rem #ccc;
+}
+#agregara:active{
+  box-shadow: inset .2rem .2rem 1rem #fff, 
+  inset -.2rem -.2rem 1rem #ccc;
+}
+
+#borrar{
+  background-image: url("src/assets/borrar.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  font-weight: 500;
+  color: #444;
+  font-size: 1rem;
+  padding: 1.5rem 1.5rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 1s ease;
+  box-shadow: .5rem .5rem 1rem #ccc, -.5rem -.5rem 1rem #fff;
+  margin-bottom: 1rem;
+  margin-left: 20px;
+
+}
+#borrar:hover{
+  box-shadow: .5rem .5rem 1rem #fff, -.5rem -.5rem 1rem #ccc;
+}
+#borrara:active{
+  box-shadow: inset .2rem .2rem 1rem #fff, 
+  inset -.2rem -.2rem 1rem #ccc;
+}
+
+
 #titulo1{
   background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/003.webp');
   padding: 15%;
@@ -204,6 +251,11 @@ nav{background: #0F2027;  /* fallback for old browsers */
   border-top-color: black ;
   transition-property: linear;
   transition-duration: 2s;
+}
+
+input#mes{
+  margin-right: 10px;
+  margin-bottom: 10px
 }
 
 #parrafpacercade{
@@ -280,4 +332,14 @@ div.carta .row{
   border-bottom-color:#1F1C18;
   font-family: 'Times New Roman', Times, serif;
   color: white;  
+}
+
+form{
+  width: 100%;
+}
+textarea{
+  width: 100%;
+}
+.progress{
+  margin-bottom: 20px;
 }

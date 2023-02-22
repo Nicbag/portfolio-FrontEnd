@@ -1,0 +1,21 @@
+<form (ngSubmit)="onSubmit()">
+    <div class="form-control">
+        <div>
+            <label for="text" class="display-6">Ingrese Tecnologia/Destreza</label>
+            <br>
+            <br> 
+            <input type="text" name="text" id="text" placeholder="Nombre destreza" [(ngModel)]="tecnologia">
+        </div>
+        <br>
+        <div>
+            <label for="text" class="display-6">Ingrese nivel de destreza</label>
+            <br>
+            <br> 
+            <input type="number" name="number" id="text" placeholder="Nivel destreza" [(ngModel)]="nivel">
+            <small>El rango es de 0 a 100</small>
+        </div>
+        <br>
+        <input type="submit" class="btn btn-success">    
+    </div>     
+</form>
+<br>

@@ -15,77 +15,57 @@
     <br>
     
     <div class="container-fluid">
-        <ul type="disc">
-            <div class="row" data-aos="fade-right">
-                <div class="col-lg-5 col-sm-10">
-                    <h3 class="display-5" id="text-curso1-1">Curso de inglés para adolecentes</h3>
-                    <div>
-                        <input type="text" id="edit-curso1-1" oninput="editarCurso(1,1,this.value)" onkeydown="guardartextoCurso(1)" style="display: none;">
-                    </div>
-                    <p class="display-6" id="text-curso1-2">A.M.I.C.A.N.A</p>
-                    <div>
-                        <input type="text" id="edit-curso1-2" oninput="editarCurso(1,2,this.value)" onkeydown="guardartextoCurso(1)" style="display: none;">
-                    </div>
-                    <p id="text-curso1-3">2017-2021</p>
-                    <div>
-                        <input type="text" id="edit-curso1-3" oninput="editarCurso(1,3,this.value)" onkeydown="guardartextoCurso(1)" style="display: none;">
-                    </div>
+        <button id="agregar" *ngIf="!mostrarFormularioadd" (click)="mostrarFormulario()"></button>
+        <button id="borrar" *ngIf="mostrarFormularioadd" (click)="mostrarFormulario()"></button>
+        <app-add-course (addCourse)="agregarCurso($event)" *ngIf="mostrarFormularioadd"></app-add-course>
+        <ul type="disc" *ngFor="let cur of datosCurso, let i=index" data-aos="fade-right">
+            <div class="row" >
+                <div class="col-lg-5 col-sm-12 col-md-11">
+                    <h3 class="display-5" id="text-curso1-1">{{cur.nombreCurso}}</h3>
+                    
+                    <p class="display-6" id="text-curso1-2">{{cur.institucionCurso}}</p>
+                    
+                    <p id="text-curso1-3">{{cur.fechaInicioCurso.month}} {{cur.fechaInicioCurso.year}} - {{cur.fechaFinCurso.month}} {{cur.fechaFinCurso.year}} </p>
+                    <form *ngIf="mostrarFormularioedit[i]" (ngSubmit)="onSubmit(cur, i)">
+                        <div class="form-control">
+                            <label class="display-6">Editar</label>
+                            <div>
+                                <input type="text" id="edit-curso1-1" name="nombre" [(ngModel)]="cur.nombreCurso" placeholder="nombre Curso">
+                            </div>
+                            <br>
+                            <div>
+                                <input type="text" id="edit-curso1-2" name="institucion"[(ngModel)]="cur.institucionCurso" placeholder="institucion Curso">
+                            </div>
+                            <br>
+                            <div>
+                                <input type="text" id="mes" name="mesIni" [(ngModel)]="cur.fechaInicioCurso.month" placeholder="mes inicio">
+                                <input type="number" id="edit-curso1-3" name="añoIni" [(ngModel)]="cur.fechaInicioCurso.year" placeholder="año inicio">
+                            </div>
+                            <br>
+                            <div>
+                                <input type="text" id="mes" name="mesFin" [(ngModel)]="cur.fechaFinCurso.month" placeholder="mes fin">
+                                <input type="number" id="edit-curso1-3" name="añoFin" [(ngModel)]="cur.fechaFinCurso.year" placeholder="año fin">
+                            </div>
+                            <br>
+                            <input type="submit" class="btn btn-success">
+    
+                        </div>
+                    </form>   
                 </div>
                 
-                <div class="col-1">
-                    <div class="btn-edit" onclick="cambiarcurso(1)">
+                <div class="col-2 col-md-2  col-sm-2 col-lg-1">
+                    <div class="btn-edit" (click)="mostrarEdit(i)" *ngIf="!mostrarFormularioedit[i]">
                         <a href="#text-curso1-1" class="btn-right">
                             <button class="fa fa-pen"></button>
                         </a>
                     </div>
                 </div>
-            </div>
-            <span class="separador-fila" data-aos="fade-right"> ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</span>
-            <div class="row" data-aos="fade-right">
-                <div class="col-lg-5 col-sm-10">
-                    <h3 class="display-5" id="text-curso2-1">#SeProgramar</h3>
-                    <div>
-                        <input type="text" id="edit-curso2-1" oninput="editarCurso(2,1,this.value)" onkeydown="guardartextoCurso(2)" style="display: none;">
-                    </div>
-                    <p class="display-6" id="text-curso2-2">Argentina Programa</p>
-                    <div>
-                        <input type="text" id="edit-curso2-2" oninput="editarCurso(2,2,this.value)" onkeydown="guardartextoCurso(2)" style="display: none;">
-                    </div>
-                    <p id="text-curso2-3">JUN 2022-AUG 2022</p>
-                    <div>
-                        <input type="text" id="edit-curso2-3" oninput="editarCurso(2,3,this.value)" onkeydown="guardartextoCurso(2)" style="display: none;">
-                    </div>
-                </div>
-                <div class="col-1">
-                    <div class="btn-edit" onclick="cambiarcurso(2)">
-                        <a href="#text-curso2-1" class="btn-right">
-                            <button class="fa fa-pen"></button>
+                <div class="col-2 col-md-2  col-sm-2 col-lg-1">
+                    <div class="btn-edit" (click)="borrarItem(cur)">
+                        <a href="#text-curso1-1" class="btn-right">
+                            <button id="borrar"></button>
                         </a>
-                    </div>
-                </div>
-            </div>
-            <span class="separador-fila" data-aos="fade-right"> ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</span>
-            <div class="row" data-aos="fade-right">
-                <div class="col-lg-5 col-sm-10">
-                    <h3 class="display-5" id="text-curso3-1">#YoProgramo</h3>
-                    <div>
-                        <input type="text" id="edit-curso3-1" oninput="editarCurso(3,1,this.value)" onkeydown="guardartextoCurso(3)" style="display: none;">
-                    </div>
-                    <p class="display-6" id="text-curso3-2">Argentina Programa</p>
-                    <div>
-                        <input type="text" id="edit-curso3-2" oninput="editarCurso(3,2,this.value)" onkeydown="guardartextoCurso(3)" style="display: none;">
-                    </div>
-                    <p id="text-curso3-3">OCT 2022-MAY 2023</p>
-                    <div>
-                        <input type="text" id="edit-curso3-3" oninput="editarCurso(3,3,this.value)" onkeydown="guardartextoCurso(3)" style="display: none;">
-                    </div>
-                </div>
-                <div class="col-1">
-                    <div class="btn-edit" onclick="cambiarcurso(3)">
-                        <a href="#text-curso1" class="btn-right">
-                            <button class="fa fa-pen"></button>
-                        </a>
-                    </div>
+                    </div>   
                 </div>
             </div>
             <span class="separador-fila" data-aos="fade-right"> ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</span>
