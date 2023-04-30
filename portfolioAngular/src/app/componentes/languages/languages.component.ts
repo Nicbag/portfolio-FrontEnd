@@ -14,8 +14,8 @@ export class LanguagesComponent  implements OnInit{
   constructor(private datosPortfolio: PortfolioService){}
 
   ngOnInit(): void {
-      this.datosPortfolio.obtenerDatos().subscribe(data => {
-        this.datosIdioma=data.idiomas;
+      this.datosPortfolio.verIdiomas().subscribe(data => {
+        this.datosIdioma=data;
         this.mostrarFormularioedit.length= this.datosIdioma.length
         for(let i of this.mostrarFormularioedit){
           i=false;

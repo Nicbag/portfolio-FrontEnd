@@ -14,8 +14,8 @@ export class CoursesComponent implements OnInit {
   constructor(private datosPortfolio: PortfolioService){}
 
   ngOnInit(): void {
-      this.datosPortfolio.obtenerDatos().subscribe(data => {
-        this.datosCurso=data.cursos;
+      this.datosPortfolio.verCursos().subscribe(data => {
+        this.datosCurso=data;
         this.mostrarFormularioedit.length= this.datosCurso.length;
         for(let i of this.mostrarFormularioedit){
           i=false;
@@ -41,16 +41,30 @@ export class CoursesComponent implements OnInit {
   mostrarEdit(i: number){
     this.mostrarFormularioedit[i]= !this.mostrarFormularioedit[i];
   }
-  
+  revisarfechafin(fechafin:String){
+    if(fechafin!=null){
+      return false
+    }else{
+      return true;
+    }
+  }
   onSubmit(item:any, i:number){
-    if(item.nombreCurso.length==0 || item.institucionCurso.length==0 || item.fechaInicioCurso.month.length==0 || item.fechaInicioCurso.year==0 || item.fechaFinCurso.month.length==0 || item.fechaFinCurso.year==0 ){
+    if(item.nombreCurso=="" || item.institucionCurso=="" || item.fechainicioCurso== ""){
       alert("Por favor complete todo el formulario")
     }else{
-      if(item.fechaInicioCurso.year> item.fechaFinCurso.year){
-        alert("El año de inicio no puede ser menor que del final!")
+      if(item.fechafinCurso!==""){
+        if(item.fechainicioCurso> item.fechafinCurso){
+          alert("El año de inicio no puede ser menor que del final!")
+        }else{
+          this.datosPortfolio.editItemCur(item).subscribe(item =>{
+            this.mostrarFormularioedit[i]= false;
+            location.reload();
+          })
+        } 
       }else{
         this.datosPortfolio.editItemCur(item).subscribe(item =>{
-          this.mostrarFormularioedit[i]= false;
+        this.mostrarFormularioedit[i]= false;
+        location.reload();
         })
       }
     }

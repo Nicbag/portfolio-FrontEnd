@@ -14,8 +14,9 @@ export class SkillsComponent  implements OnInit {
   constructor(private datosPortfolio: PortfolioService){}
 
   ngOnInit(): void {
-      this.datosPortfolio.obtenerDatos().subscribe(data => {
-        this.datosDestreza=data.destrezas;
+      this.datosPortfolio.verDestrezas().subscribe(data => {
+        console.log(data);
+        this.datosDestreza=data;
         this.mostrarFormularioedit.length=this.datosDestreza.length
         for(let i of this.mostrarFormularioedit){
           i=false;
@@ -44,15 +45,15 @@ export class SkillsComponent  implements OnInit {
   }
 
   onSubmit(item:any, i:number){
-    if(item.nombreDestreza.length==0 || item.nivelDestreza.length==0){
+    if(item.nombreDestreza=="" || item.nivelDestreza==0){
       alert("Por favor complete todo el formulario")
     }else{
       if(item.nivelDestreza<=0 || item.nivelDestreza> 100){
         alert("El nivel de experiencia tiene que ser mayor a 0 y menor o igual a 100")
       }else{
-        item.nivelDestreza= item.nivelDestreza +"%"
       this.datosPortfolio.editItemDes(item).subscribe(item =>{
         this.mostrarFormularioedit[i]= false;
+        location.reload();
         })
       }
     }

@@ -21,8 +21,9 @@ export class EducationComponent implements OnInit {
   constructor(private datosPortfolio: PortfolioService){}
 
   ngOnInit(): void {
-      this.datosPortfolio.obtenerDatos().subscribe(data => {
-        this.datosEducacion=data.educacion;
+      this.datosPortfolio.verEducaciones().subscribe(data => {
+        console.log(data);
+        this.datosEducacion=data;
         this.mostrarEdit.length= this.datosEducacion.length
         for(let i of this.mostrarEdit){
             i= false;
@@ -36,15 +37,21 @@ export class EducationComponent implements OnInit {
   }
 
   onSubmit(item:any, i: number){
-    if(item.fechaInicioEducacion.year>item.fechaFinEducacion.year){
-      alert("El año de inicio no puede ser mayor que el del final!")
+    if(!(item.institucionEducacion=="" || item.especialidadEducacion=="" ||item.fechainicioEducacion==null ||item.fechafinEducacion==null)){
+      if(item.fechainicioEducacion>item.fechafinEducacion){
+        alert("El año de inicio no puede ser mayor que el del final!")
+      }else{
+        this.datosPortfolio.editItemEdu(item).subscribe( item =>{
+          this.mostrarEdit[i]=false;
+          location.reload();
+        });
+      }
     }else{
-      this.datosPortfolio.editItemEdu(item).subscribe( item =>{
-        this.mostrarEdit[i]=false;
-      });
+      alert("Ningún campo puede quedar vacío!")
     }
-  }
+  }  
 
+  //acordate que es el idEducacion el que hay que mandar a la api
   borrarItem(edu:any){
     console.log(edu);
     this.datosPortfolio.deleteItemEdu(edu).subscribe(any =>{

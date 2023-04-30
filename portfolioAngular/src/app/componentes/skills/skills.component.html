@@ -25,14 +25,14 @@
                     <div class="row">
                         <div class="col-2 col-md-2  col-sm-2 col-lg-1">
                             <div class="btn-edit" (click)="mostrarEdit(i)" *ngIf="!mostrarFormularioedit[i]">
-                                <a href="#text-destreza1" class="btn-right">
+                                <a  class="btn-right">
                                     <button class="fa fa-pen"></button>
                                 </a>
                             </div>
                         </div>
                         <div class="col-2 col-md-2  col-sm-2 col-lg-1">
-                            <div class="btn-editd" (click)="borrarItem(des)">
-                                <a href="#text-destreza1" class="btn-right">
+                            <div class="btn-editd" (click)="borrarItem(des)" *ngIf="!mostrarFormularioedit[i]">
+                                <a  class="btn-right">
                                     <button id="borrar"></button>
                                 </a>
                             </div>   
@@ -46,7 +46,7 @@
                             </div>
                             <div class="col-7">
                                 <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="margin-top: 10px;" >
-                                    <span class="progress-bar" id="text-barra1" [style.width]="des.nivelDestreza"></span>
+                                    <span class="progress-bar" id="text-barra1" [style.width.%]="des.nivelDestreza">{{des.nivelDestreza}}</span>
                                 </div>
                             </div>
                             <form *ngIf="mostrarFormularioedit[i]" (ngSubmit)="onSubmit(des, i)">
@@ -57,11 +57,10 @@
                                     <br>
                                     <div>
                                         <input type="number"id="text" name="nivel" placeholder="Nivel de Destreza" [(ngModel)]="des.nivelDestreza" >
-                                        <br>
-                                        <small> El nivel actual es de {{des.nivelDestreza}}</small>
                                     </div>
                                     <br>
                                     <input type="submit" class="btn btn-success">
+                                    <button class="btn btn-danger" (click)="mostrarEdit(i)">Cancelar</button>
 
                                 </div>
                             </form>

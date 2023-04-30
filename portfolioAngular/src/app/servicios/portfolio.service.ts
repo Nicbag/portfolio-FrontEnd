@@ -13,21 +13,55 @@ const httpOptions ={
 
 export class PortfolioService {
   
-  private apiurl= "http://localhost:5000"
+  private apiurl= "http://localhost:8080/api"
 
   constructor(private http:HttpClient) { }
 
   obtenerDatos(): Observable<any>{
-    return this.http.get("./assets/data/data.json");
-  }
-//gets de los datos del json server habría que hacer para cada uno pero paja
-  getEducacion(): Observable<any>{
-    return this.http.get(this.apiurl+"/educacion")
+    return this.http.get<any>("./assets/data/data.json");
   }
 
+//gets de los datos 
+
+  verEducaciones(): Observable<any>{
+    return this.http.get(this.apiurl+"/ver/educaciones")
+  }
+  //probado y andando
+
+  verCursos(): Observable<any>{
+    return this.http.get(this.apiurl+"/ver/cursos")
+  }
+  //probado y andando
+
+  verDestrezas(): Observable<any>{
+    return this.http.get(this.apiurl+"/ver/destrezas")
+  }
+  //probado y andando
+
+  verExperiencias(): Observable<any>{
+    return this.http.get(this.apiurl+"/ver/experiencias")
+  }
+  //probado y andando
+
+  verIdiomas(): Observable<any>{
+    return this.http.get(this.apiurl+"/ver/idiomas")
+  }
+  //probado y andando
+
+  verProyectos(): Observable<any>{
+    return this.http.get(this.apiurl+"/ver/proyectos")
+  }
+  //probado y andando
+
+  verPersona(): Observable<any>{
+    return this.http.get(this.apiurl+"/ver/persona")
+  }
+  //probado y andando
+
 //funciones para eliminar items
+
   deleteItemEdu(item:any): Observable<any>{
-       return this.http.delete<any>(this.apiurl + "/educacion/"+item.id.toString())
+    return this.http.delete<any>(this.apiurl + "/educacion/"+item.id.toString())
   }
 
   deleteItemExp(item:any): Observable<any>{
@@ -72,25 +106,40 @@ export class PortfolioService {
   }
 
   //para editar items
+
   editItemEdu(item:any): Observable<any>{
-    return this.http.put<any>(this.apiurl + "/educacion/"+item.id.toString(), item)
+    return this.http.put<any>(this.apiurl + "/modificar/educacion", item)
   }
-  editItemAce(item: any): Observable<any>{
-    return this.http.put<any>(this.apiurl +"/acercade/", item);
+  //probado y andando ver tema de cancelar form y reload
+
+  editItemPersona(item: any): Observable<any>{
+    return this.http.put<any>(this.apiurl +"/modificar/persona", item);
   }
+  //probado y andando ver tema de cancelar form y reload
+
   editItemExp(item: any): Observable<any>{
-    return this.http.put<any>(this.apiurl +"/experiencia/"+item.id.toString(), item)
+    return this.http.put<any>(this.apiurl +"/modificar/experiencia", item)
   }
+  //probado y andado ver tema de cancelar form y reload 
+
   editItemDes(item:any): Observable<any>{
-    return this.http.put<any>(this.apiurl +"/destrezas/"+item.id.toString(), item)
+    return this.http.put<any>(this.apiurl +"/modificar/destreza", item)
   }
+  //probado y andando ver tema de cancelar form y reload
+
   editItemCur(item:any): Observable<any>{
-    return this.http.put<any>(this.apiurl +"/cursos/"+item.id.toString(), item)
+    return this.http.put<any>(this.apiurl +"/modificar/curso", item)
   }
+  //probado y andando ver tema de cancelar form y reload
+  
   editItemPro(item:any): Observable<any>{
-    return this.http.put<any>(this.apiurl +"/proyectos/"+item.id.toString(), item)
+    return this.http.put<any>(this.apiurl +"/modificar/proyecto", item)
   }
+  //probado y andando
+
   editItemIdi(item:any): Observable<any>{
-    return this.http.put<any>(this.apiurl +"/idiomas/"+item.id.toString(), item)
+    return this.http.put<any>(this.apiurl +"/modificar/idioma", item)
   }
+
+
 }

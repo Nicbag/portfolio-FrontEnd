@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './componentes/header/header.component';
@@ -22,6 +23,8 @@ import { AddSkillComponent } from './componentes/skills/add-skill/add-skill.comp
 import { AddCourseComponent } from './componentes/courses/add-course/add-course.component';
 import { AddProyectComponent } from './componentes/proyects/add-proyect/add-proyect.component';
 import { AddLanguageComponent } from './componentes/languages/add-language/add-language.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { HomeComponent } from './componentes/home/home.component';
 
 @NgModule({
   declarations: [
@@ -42,11 +45,14 @@ import { AddLanguageComponent } from './componentes/languages/add-language/add-l
     AddCourseComponent,
     AddProyectComponent,
     AddLanguageComponent,
+    LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

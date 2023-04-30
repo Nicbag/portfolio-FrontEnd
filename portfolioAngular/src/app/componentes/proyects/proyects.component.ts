@@ -14,8 +14,8 @@ export class ProyectsComponent implements OnInit {
   constructor(private datosPortfolio: PortfolioService){}
 
   ngOnInit(): void {
-      this.datosPortfolio.obtenerDatos().subscribe(data => {
-        this.datosProyecto=data.proyectos;
+      this.datosPortfolio.verProyectos().subscribe(data => {
+        this.datosProyecto=data;
         this.mostrarFormularioedit.length=this.datosProyecto.length;
         for(let i of this.mostrarFormularioedit){
           i=false;
@@ -45,12 +45,18 @@ export class ProyectsComponent implements OnInit {
     this.mostrarFormularioedit[i]= !this.mostrarFormularioedit[i];
   }
 
+  recargar(i: number){
+    this.mostrarEdit(i);
+    location.reload();
+  }
+
   onSubmit(item:any, i:number){
-    if(item.nombreProyecto.length==0 || item.descripcionProyecto.length==0 || item.institucionProyecto.length==0){
+    if(item.nombreProyecto=="" || item.descripcionProyecto=="" || item.institucionProyecto=="" || item.fechaProyecto==""){
       alert("Por favor complete todo el formulario")
     }else{
       this.datosPortfolio.editItemPro(item).subscribe(item =>{
         this.mostrarFormularioedit[i]=false;
+        location.reload();
       })
     }
   }

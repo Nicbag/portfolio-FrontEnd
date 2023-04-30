@@ -16,52 +16,67 @@
 
     <div class="container-fluid"> 
         <div class="row">
-            <div class="col-lg-4 col-sm-12 col-md-5">
+            <div class="col-lg-4 col-sm-12 col-md-5" *ngFor="let per of datosperfil">
                 <div class="container" id="profile" style="display: flex;justify-content: center;">
                     <div class="circular-landscape">
-                        <img  class="profile-photo" src="../../../assets/fotoperfil.jpg" alt="hola">
+                        <img  class="profile-photo" [src]="per.fotoPersona" alt="hola">
                     </div>
                 </div>
                 <div class="btn-edit" (click)="mostrarEditPerfil()" *ngIf="!mostrareditPerfil">
-                    <a href="#text-perfil1" class="btn-right">
+                    <a class="btn-right">
                         <button class="fa fa-pen"></button>
                     </a>
+                </div>
+                <div *ngFor="let per of datosperfil">
+                    <h1 id="text-perfil1" class="display-3">{{per?.nombrePersona}} {{per?.apellidoPersona}}</h1>
+                    <h2 id="text-perfil2">{{per?.actualidadPersona}}</h2>
+                    <h2 id="text-perfil3">{{per?.rubroPersona}}</h2>
+                    <h2 id="text-perfil4">{{per?.ciudadPersona}}</h2>
                 </div> 
-                <h1 id="text-perfil1" class="display-3">{{datosperfil?.nombre}}</h1>
-                <div>
-                    <input type="text"id="edit-perfil1" oninput="editartextoPerfil(1,this.value)" onkeydown="guardartextoPerfil()" style="display:none">
-                </div>
-                <h2 id="text-perfil2">{{datosperfil?.actualidad}}</h2>
-                <div>
-                    <input type="text"id="edit-perfil2" oninput="editartextoPerfil(2,this.value)" onkeydown="guardartextoPerfil()" style="display:none">
-                </div>
-                <h2 id="text-perfil3">{{datosperfil?.rubro}}</h2>
-                <div>
-                    <input type="text"id="edit-perfil3" oninput="editartextoPerfil(3,this.value)" onkeydown="guardartextoPerfil()" style="display:none">
-                </div>
-                <h2 id="text-perfil4">{{datosperfil?.ciudad}}</h2>
+                <br>
+                <a href= "../../../assets/CV Bruno Nicolás Bagnato.pdf" download="CV Bruno Bagnato.pdf" style="text-decoration: none;">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-success btn-right bt" id="botoncv">Mi CV</button>
+                    </div>
+                </a>
+                <br>
                 <form (ngSubmit)="onSubmitPerfil(datosperfil)" *ngIf="mostrareditPerfil" >
-                    <div class="form-control">
-                        <label class="display-6">Editar</label>
+                    <div class="form-control" *ngFor="let per of datosperfil">
+                        <span class="display-6">Editar    
+                        </span>
                         <br>
                         <div>
-                            <input type="text"id="edit-perfil1" name="nombre" placeholder="nombre y apellido" [(ngModel)]="datosperfil.nombre">
+                            Nombre:
+                            <input type="text"id="edit-perfil1" name="nombre" placeholder="nombre" [(ngModel)]="per.nombrePersona">
+                        </div>
+                        <div>
+                            Apellido:
+                            <input type="text"id="edit-perfil1" name="apellido" placeholder="apellido" [(ngModel)]="per.apellidoPersona">
                         </div>
                         <br>
                         <div>
-                            <input type="text"id="edit-perfil2" name="actualidad" placeholder="actualidad" [(ngModel)]="datosperfil.actualidad">
+                            Actualidad:
+                            <input type="text"id="edit-perfil2" name="actualidad" placeholder="actualidad" [(ngModel)]="per.actualidadPersona">
                         </div>
                         <br>
                         <div>
-                            <input type="text"id="edit-perfil3" name="rubro" placeholder="rubro" [(ngModel)]="datosperfil.rubro">
+                            Rubro:
+                            <input type="text"id="edit-perfil3" name="rubro" placeholder="rubro" [(ngModel)]="per.rubroPersona">
                         </div>
                         <br>
                         <div>
-                            <input type="text"id="edit-perfil3" name="ciudad" placeholder="ciudad" [(ngModel)]="datosperfil.ciudad">
+                            Ciudad:
+                            <input type="text"id="edit-perfil3" name="ciudad" placeholder="ciudad" [(ngModel)]="per.ciudadPersona">
+                        </div>
+                        <br>
+                        <div>
+                            Foto de perfil
+                            <input type="search"id="edit-perfil3" name="foto" placeholder="foto del perfil" src="../../../assets/fotoperfil.jpg" [(ngModel)]="per.fotoPersona">
                         </div>
                         <br>
                         <div>
                         <input type="submit" class="btn btn-success">
+                        <button class="btn btn-danger" (click)="mostrarEditPerfil()">Cancelar</button>
                         </div>
                     </div>
                 </form>   
@@ -69,21 +84,22 @@
 
             <div class="col-lg-8 col-sm-12 col-md-7">
                 <div class="btn-edit" (click)="mostrarEditAcerca()" *ngIf="!mostrareditAcercaDe">
-                    <a href="#text-acercademi" class="btn-right">
+                    <a  class="btn-right">
                         <button class="fa fa-pen"></button>
                     </a>
                 </div>        
-                <div class="justify-content-sm-center text-start" id="parrafoacercade">
-                    <span class="display-6" id="text-acercademi"> {{datosperfil?.aboutMe}}</span> 
+                <div class="justify-content-sm-center text-start" id="parrafoacercade" *ngFor="let per of datosperfil">
+                    <span class="display-6" id="text-acercademi"> {{per?.acercadePersona}}</span> 
                 </div>
-                <form (ngSubmit)="onSubmitAcerca(datosperfil)" *ngIf="mostrareditAcercaDe">
-                    <div class="form-control">
+                <form (ngSubmit)="onSubmitAcerca(datosperfil)" *ngIf="mostrareditAcercaDe" >
+                    <div class="form-control" *ngFor="let per of datosperfil">
                         <div>
-                            <textarea  class="form-control" rows="3" type="text"id="acercademi" name="acercade" [(ngModel)]="datosperfil.aboutMe"></textarea>
+                            <textarea  class="form-control" rows="3" type="text"id="acercademi" name="acercade" [(ngModel)]="per.acercadePersona"></textarea>
                         </div>
                         <br>
                         <div>
                             <input type="submit" class="btn btn-success" >
+                            <button class="btn btn-danger" (click)="mostrarEditAcerca()">Cancelar</button>
                         </div>
                     </div>
                 </form>

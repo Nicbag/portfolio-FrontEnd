@@ -14,8 +14,8 @@ export class ExperienceComponent implements OnInit {
   constructor(private datosPortfolio: PortfolioService){}
 
   ngOnInit(): void {
-      this.datosPortfolio.obtenerDatos().subscribe(data => {
-        this.datosExperiencia=data.experiencia;
+      this.datosPortfolio.verExperiencias().subscribe(data => {
+        this.datosExperiencia=data;
         this.mostrarFormularioedit.length= this.datosExperiencia.length;
         for(let i of this.mostrarFormularioedit){
           i= false;
@@ -45,15 +45,31 @@ export class ExperienceComponent implements OnInit {
     this.mostrarFormularioedit[i]=!this.mostrarFormularioedit[i];
   }
 
-  onSubmit(item: any, i: number){
-    if(item.puestoExperiencia.length== 0 || item.descripcionExperiencia.length==0 || item.fechaInicioExperiencia.month.length==0 || item.fechaInicioExperiencia.year == 0 || item.fechaFinExperiencia.month.length==0 || item.fechaFinExperiencia.year == 0 ){
-      alert("Por favor completar todo el formulario")
+  revisarfechafin(fechafin:String){
+    if(fechafin!=null){
+      return false
     }else{
-      if(item.fechaInicioExperiencia.year> item.fechaFinExperiencia.year){
-        alert("El año de inicio no puede ser menor que el final!")
+      return true;
+    }
+  }
+
+  onSubmit(item: any, i: number){
+    if(item.puestoExperiencia== "" || item.descripcionExperiencia=="" || item.fechainicioExperiencia=="" || item.ciudadExperiencia==""){
+      alert("Por favor completar todo el formulario(fecha fin puede ser vacía)")
+    }else{
+      if(item.fechafinExperiencia!==""){
+        if(item.fechainicioExperiencia> item.fechafinExperiencia){
+          alert("El año de inicio no puede ser menor que el final!")
+        }else{
+          this.datosPortfolio.editItemExp(item). subscribe( item =>{
+            this.mostrarFormularioedit[i]= false;
+            location.reload();
+          })
+        }
       }else{
         this.datosPortfolio.editItemExp(item). subscribe( item =>{
-          this.mostrarFormularioedit[i]= false
+          this.mostrarFormularioedit[i]= false;
+          location.reload();
         })
       }
     }

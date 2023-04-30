@@ -26,23 +26,37 @@
                     <p class="display-6" id="text-proyecto1-2">{{pro.institucionProyecto}}</p>
                     
                     <p id="text-proyecto1-3">{{pro.descripcionProyecto}}</p>
+                    <p>Fecha de realización del proyecto: {{pro.fechaProyecto| date: "MMM-yyyy"}}</p>
                     
                     <form (ngSubmit)="onSubmit(pro,i)" *ngIf="mostrarFormularioedit[i]">
                         <div class="form-control">
                             <label class="display-6">Editar</label>
                             <div>
+                                Nombre:
                                 <input type="text" id="edit-proyecto1-1" [(ngModel)]="pro.nombreProyecto" name="nombre">
                             </div>
                             <br>
                             <div>
+                                Institución
                                 <input type="text" id="edit-proyecto1-2" [(ngModel)]="pro.institucionProyecto" name="institucion">
                             </div>
                             <br>
                             <div>
+                                Descripción:
                                 <textarea type="text" id="edit-proyecto1-3" [(ngModel)]="pro.descripcionProyecto" name="descripcion" rows="3" cols="80"></textarea>
                             </div>
                             <br>
+                            <div>
+                                Fecha proyecto:
+                                <input type="date" [(ngModel)]="pro.fechaProyecto" name="fecha del proyecto">
+                            </div>
+                            <div>
+                                Link proyecto:
+                                <input type="text" [(ngModel)]="pro.linkProyecto" name="link del proyecto">
+                            </div>
+                            <br>
                             <input type="submit" class="btn btn-success">
+                            <button class="btn btn-danger"  (click)="recargar(i)">Cancelar</button>
                         </div>
                     </form>
                     <br>
@@ -50,14 +64,14 @@
                 
                 <div class=" col-2 col-md-2  col-sm-2 col-lg-1">
                     <div class="btn-edit" (click)="mostrarEdit(i)" *ngIf="!mostrarFormularioedit[i]">
-                        <a href="#text-proyecto1-1" class="btn-right">
+                        <a  class="btn-right">
                             <button class="fa fa-pen"></button>
                         </a>
                     </div>
                 </div>
                 <div class=" col-2 col-md-2 col-sm-2 col-lg-1">
-                    <div class="btn-edit" (click)="borrarItem(pro)">
-                        <a href="#text-proyecto1-1" class="btn-right">
+                    <div class="btn-edit" (click)="borrarItem(pro)" *ngIf="!mostrarFormularioedit[i]">
+                        <a  class="btn-right">
                             <button id="borrar"></button>
                         </a>
                     </div>   

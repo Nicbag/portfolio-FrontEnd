@@ -21,38 +21,42 @@
         <ul type="disc" *ngFor="let edu of datosEducacion, let i=index" data-aos="fade-right">
             <div class="row">
                 <div class="col-lg-6  col-md-11 col-sm-12">
-                    <h3 class="display-5" id="text-educacion1-1">{{edu?.establecimiento}}</h3>
-                    <p class="display-6" id="text-educacion1-2">{{edu.orientacion}}</p>
-                    <p id="text-educacion1-3">{{edu?.fechaInicioEducacion?.month}} {{edu?.fechaInicioEducacion?.year}} - {{edu?.fechaFinEducacion?.month}} {{edu?.fechaFinEducacion?.year}} </p>
+                    <h3 class="display-5" id="text-educacion1-1">{{edu.institucionEducacion}}</h3>
+                    <p class="display-6" id="text-educacion1-2">{{edu.especialidadEduacion}}</p>
+                    <p id="text-educacion1-3">{{edu.fechainicioEducacion|date: "MMM-YYYY"}} / {{edu.fechafinEducacion| date: "MMM-YYYY"}} </p>
                     <div *ngIf="mostrarEdit[i]">
                         <form (ngSubmit)="onSubmit(edu,i)">
                             <div class="form-control">
                                 <label class="display-5"> Editar</label>
                                 <br>
                                 <div>
-                                    <input type="text"name="establecimiento" id="text" placeholder="Nombre Establecimiento" [(ngModel)]="edu.establecimiento">
+                                    Institución:
+                                    <input type="text"name="establecimiento" id="text" placeholder="Nombre Establecimiento" [(ngModel)]="edu.institucionEducacion">
                                 </div>
                                 <br>
                                 <div>
-                                    <input type="text"name="orientacion" id="text" placeholder="Nombre orientacion" [(ngModel)]="edu.orientacion">
+                                    Especialidad:
+                                    <input type="text"name="orientacion" id="text" placeholder="Nombre orientacion" [(ngModel)]="edu.especialidadEduacion">
                                 </div>
                                 <br>
                                 <div>
-                                    <input type="text"name="mesini" id="mes" placeholder="Mes inicio" [(ngModel)]="edu.fechaInicioEducacion.month">
-                                    <input type="number"name="anoini" id="number" placeholder="Año inicio" [(ngModel)]="edu.fechaInicioEducacion.year">
+                                    Fecha inicio:
+                                    <input type="date"name="mesini" id="mes" placeholder="Mes inicio" [(ngModel)]="edu.fechainicioEducacion">
                                 </div>
                                 <br>
                                 <div>
-                                    <input type="text"name="mesfin" id="mes" placeholder="Mes final" [(ngModel)]="edu.fechaFinEducacion.month">
-                                    <input type="number"name="anofin" id="number" placeholder="Año final" [(ngModel)]="edu.fechaFinEducacion.year">
+                                    Fecha fin:
+                                    <input type="date"name="mesfin" id="mes" placeholder="Mes final" [(ngModel)]="edu.fechafinEducacion">
                                 </div>
                                 <br>
                                 <div>
+                                    Foto educacion
                                     <input type="text"name="fotoEducacion" id="text" placeholder="foto Educación" [(ngModel)]="edu.fotoEducacion">
                                 </div>
                                 <br>
                                 <div>
                                     <input type="submit" class="btn btn-success">
+                                    <button class="btn btn-danger" (click)="mostrarFormularioEdit(i)">Cancelar</button>
                                 </div>
                             </div>
                         </form>    
@@ -60,20 +64,20 @@
                 </div>
                 <div class="col-2 col-md-2  col-sm-2 col-lg-1">
                     <div class="btn-edit" (click)="mostrarFormularioEdit(i)" *ngIf="!mostrarEdit[i]">
-                        <a href="#text-educacion1-1" class="btn-right">
+                        <a  class="btn-right">
                             <button class="fa fa-pen"></button>
                         </a>
                     </div>   
                 </div>
                 <div class="col-2 col-md-2  col-sm-2 col-lg-1">
-                    <div class="btn-edit" (click)="borrarItem(edu)">
-                        <a href="#text-educacion1-1" class="btn-right">
+                    <div class="btn-edit" (click)="borrarItem(edu)" *ngIf="!mostrarEdit[i]">
+                        <a  class="btn-right">
                             <button id="borrar"></button>
                         </a>
                     </div>   
                 </div>
                 <div class="col-lg-6 col-sm-6">    
-                    <img class="fotoeducacion" [src]= "edu?.fotoEducacion" alt="">
+                    <img class="fotoeducacion" [src]= edu?.fotoEducacion alt="">
                 </div>
             </div>
             <span class="separador-fila"> ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ</span>

@@ -22,44 +22,57 @@
             <div class="row" >
                 <div class="col-lg-7 col-sm-12 col-md-11">
                     <h3 class="display-5" id="text-experiencia1-1">{{exp.puestoExperiencia}}</h3>
+                    <h3 class="display-6">{{exp.empresaExperiencia}}</h3>
+                    <hr size="6px" color="black">
                     <p class="display-6" id="text-experiencia1-2">{{exp.descripcionExperiencia}} </p>
-                    <p id="text-experiencia1-3">{{exp.fechaInicioExperiencia.month}} {{exp.fechaInicioExperiencia.year}} - {{exp.fechaFinExperiencia.month}} {{exp.fechaFinExperiencia.year}} </p>
+                    <p id="text-experiencia1-3">
+                        {{exp.fechainicioExperiencia| date:"MMM-YYYY"}} / {{exp.fechafinExperiencia| date:"MMM-YYYY"}}
+                        <span *ngIf="revisarfechafin(exp.fechafinExperiencia)">Actualidad</span> 
+                    </p>
                     <form *ngIf="mostrarFormularioedit[i]" (ngSubmit)="onSubmit(exp, i)">
                         <div class="form-control">
                             <label class="display-6">Editar</label>
                             <br>
                             <div>
+                                Puesto:
                                 <input type="text"id="edit-experiencia1-1" name="puesto" placeholder="puesto" [(ngModel)]="exp.puestoExperiencia">
                             </div>
                             <br>
                             <div>
-                                <textarea type="text"id="edit-experiencia1-2" name="descripcion" rows="3" cols="80" placeholder="descripcion" [(ngModel)]="exp.descripcionExperiencia"></textarea>
-
-                                </div>
+                                Empresa:
+                                <input type="text"id="edit-experiencia1-1" name="empresa" placeholder="empresa" [(ngModel)]="exp.empresaExperiencia">
+                            </div>
                             <br>
                             <div>
-                                <input type="text"id="mes" name="mesIni" placeholder="Mes inicio" [(ngModel)]="exp.fechaInicioExperiencia.month">
-                                <input type="text"id="edit-experiencia1-3" name="anoIni" placeholder="Año inicio" [(ngModel)]="exp.fechaInicioExperiencia.year">
+                                Descripcion:
+                                <textarea type="text"id="edit-experiencia1-2" name="descripcion" rows="3" cols="80" placeholder="descripcion" [(ngModel)]="exp.descripcionExperiencia"></textarea>
+
+                            </div>
+                            <br>
+                            <div>
+                                Fecha inicio:
+                                <input type="date"id="Fecha" name="inicio" placeholder="inicio" [(ngModel)]="exp.fechainicioExperiencia">
                             </div>
                             <div>
-                                <input type="text"id="mes" name="mesFin" placeholder="Mes Fin" [(ngModel)]="exp.fechaFinExperiencia.month">
-                                <input type="text"id="edit-experiencia1-3" name="anoFin" placeholder="Año Fin" [(ngModel)]="exp.fechaFinExperiencia.year">
+                                Fecha fin:
+                                <input type="date"id="Fecha" name="Fin" placeholder="Fin" [(ngModel)]="exp.fechafinExperiencia">
                             </div>
                             <br>
                             <input type="submit" class="btn btn-success">
+                            <button class="btn btn-danger" (click)="mostrarEdit(i)">Cancelar</button>
                         </div>
                     </form>
                 </div>
                 <div class="col-2 col-md-2  col-sm-2 col-lg-1">
                     <div class="btn-edit" (click)="mostrarEdit(i)" *ngIf="!mostrarFormularioedit[i]">
-                        <a href="#text-experiencia1-1" class="btn-right">
+                        <a  class="btn-right">
                             <button class="fa fa-pen"></button>
                         </a>
                     </div>   
                 </div>
                 <div class="col-2 col-md-2  col-sm-2 col-lg-1">
-                    <div class="btn-edit" (click)="borrarItem(exp)">
-                        <a href="#text-experiencia1-1" class="btn-right">
+                    <div class="btn-edit" (click)="borrarItem(exp)" *ngIf="!mostrarFormularioedit[i]">
+                        <a  class="btn-right">
                             <button id="borrar"></button>
                         </a>
                     </div>   

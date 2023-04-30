@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
@@ -18,9 +19,9 @@ export class ProfileComponent  implements OnInit {
   }
 
   ngOnInit(): void {
-      this.datosporfolio.obtenerDatos().subscribe(data =>{
+      this.datosporfolio.verPersona().subscribe(data =>{
         console.log(data);
-        this.datosperfil=data.acercade;
+        this.datosperfil=data;
       })
   }
 
@@ -28,24 +29,32 @@ export class ProfileComponent  implements OnInit {
     this.mostrareditAcercaDe=!this.mostrareditAcercaDe;
   }
 
-  onSubmitAcerca( acercaDe: any){
-    if(acercaDe.aboutMe.length==0){
-      alert("No puede dejar vacío el espacio de Acerca de mí!")
-    }else{
-      this.datosporfolio.editItemAce(acercaDe).subscribe(() =>{
-        this.mostrareditAcercaDe= false;
-      })
+  onSubmitAcerca( datos: any){
+    for(let item of datos){
+      if(item.acercadePersona==""){
+        alert("No puede dejar vacío el espacio de Acerca de mí!")
+      }else{
+        this.datosporfolio.editItemPersona(item).subscribe(() =>{
+          this.mostrareditAcercaDe= false;
+          location.reload();
+        })
+      }
     }
   }
-  onSubmitPerfil(item: any){
-    if(item.nombre.length== 0 || item.rubro.length== 0 || item.ciudad.length==0 || item.actualidad.length==0){
-      alert("Por favor completar todo el formulario")
-    }else{
-      this.datosporfolio.editItemAce(item).subscribe(item =>{
-        this.mostrareditPerfil= false;
-      })
+  //probado y andando
+  onSubmitPerfil(datos: any){
+    for(let item of datos ){
+      if(item.nombrePersona== "" ||item.apellidoPersona=="" || item.rubroPersona== "" || item.ciudadPersona=="" || item.actualidadPersona==""){
+        alert("Por favor completar todo el formulario")
+      }else{
+        this.datosporfolio.editItemPersona(item).subscribe(item =>{
+          this.mostrareditPerfil= false;
+          location.reload();
+        })
+      }
     }
   }
+  //probado y andando
 
   mostrarEditPerfil(){
     this.mostrareditPerfil= !this.mostrareditPerfil
