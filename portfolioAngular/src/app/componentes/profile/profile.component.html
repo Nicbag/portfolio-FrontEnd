@@ -22,7 +22,7 @@
                         <img  class="profile-photo" [src]="per.fotoPersona" alt="hola">
                     </div>
                 </div>
-                <div class="btn-edit" (click)="mostrarEditPerfil()" *ngIf="!mostrareditPerfil">
+                <div class="btn-edit" (click)="mostrarEditPerfil()" *ngIf="!mostrareditPerfil && authService.logIn()">
                     <a class="btn-right">
                         <button class="fa fa-pen"></button>
                     </a>
@@ -76,14 +76,14 @@
                         <br>
                         <div>
                         <input type="submit" class="btn btn-success">
-                        <button class="btn btn-danger" (click)="mostrarEditPerfil()">Cancelar</button>
+                        <button class="btn btn-danger" (click)="recargarperfil()">Cancelar</button>
                         </div>
                     </div>
                 </form>   
             </div>
 
             <div class="col-lg-8 col-sm-12 col-md-7">
-                <div class="btn-edit" (click)="mostrarEditAcerca()" *ngIf="!mostrareditAcercaDe">
+                <div class="btn-edit" (click)="mostrarEditAcerca()" *ngIf="!mostrareditAcercaDe && authService.logIn()">
                     <a  class="btn-right">
                         <button class="fa fa-pen"></button>
                     </a>
@@ -99,7 +99,7 @@
                         <br>
                         <div>
                             <input type="submit" class="btn btn-success" >
-                            <button class="btn btn-danger" (click)="mostrarEditAcerca()">Cancelar</button>
+                            <button class="btn btn-danger" (click)="recargaracerca()">Cancelar</button>
                         </div>
                     </div>
                 </form>

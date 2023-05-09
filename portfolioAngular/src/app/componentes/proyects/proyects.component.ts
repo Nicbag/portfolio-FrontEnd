@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class ProyectsComponent implements OnInit {
   mostrarFormularioadd: boolean=false;
   mostrarFormularioedit: boolean[]=[];
 
-  constructor(private datosPortfolio: PortfolioService){}
+  constructor(private datosPortfolio: PortfolioService, public authService: AutenticacionService){}
 
   ngOnInit(): void {
       this.datosPortfolio.verProyectos().subscribe(data => {
@@ -27,6 +28,7 @@ export class ProyectsComponent implements OnInit {
     this.datosPortfolio.deleteItemPro(pro).subscribe(any =>{
       this.datosProyecto=this.datosProyecto.filter((p: { id: any; }) =>{ 
       return p.id !== pro.id});
+      location.reload()
     })
   }
 
@@ -34,6 +36,7 @@ export class ProyectsComponent implements OnInit {
     this.datosPortfolio.addItemPro(item).subscribe(item =>{
       this.datosProyecto.push(item);
       this.mostrarFormularioadd=false;
+      location.reload()
     })
   }
 

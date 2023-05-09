@@ -11,31 +11,38 @@ export class AddCourseComponent implements OnInit {
   
   institucion:string="";
   curso:string="";
-  mes: string[]=[];
-  ano: number[]=[];
+  fechainicio: Date=new Date();
+  fechafin: Date=new Date()
 
   ngOnInit(): void {
     
   }
 
   onSubmit(){
-    if(this.institucion.length == 0 || this.curso.length == 0 || this.mes[0].length == 0 || this.ano[1] == null || this.mes[1].length == 0 || this.ano[1] == null){
+    if(this.institucion == "" || this.curso == "" || this.fechainicio== null){
       alert("Por favor complete todo el formulario");
-    }
-    if(this.ano[0]> this.ano[1]){
-      alert("El año de inicio no puede ser menor al del final!")
     }else{
-      const newCourse = {
-        nombreCurso: this.curso,
-        institucionCurso: this.institucion,
-        fechaInicioCurso: {
-          month :this.mes[0], 
-          year :this.ano[0]},
-        fechaFinCurso: {
-          month :this.mes[1], 
-          year: this.ano[1]},
+      if(this.fechafin!==null){
+        if(this.fechainicio> this.fechafin){
+          alert("El año de inicio no puede ser menor al del final!")
+        }else{
+          const newCourse = {
+            nombreCurso: this.curso,
+            institucionCurso: this.institucion,
+            fechainicioCurso: this.fechainicio,
+            fechafinCurso: this.fechafin
+          }
+          this.addCourse.emit(newCourse);
+        }
+      }else{
+        const newCourse = {
+          nombreCurso: this.curso,
+          institucionCurso: this.institucion,
+          fechainicioCurso: this.fechainicio,
+          fechafinCurso: this.fechafin
+        }
+        this.addCourse.emit(newCourse);
       }
-      this.addCourse.emit(newCourse);
     }
   }
 }

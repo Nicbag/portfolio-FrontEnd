@@ -11,34 +11,43 @@ export class AddExperienceComponent implements OnInit {
 
    puesto: string ="";
    descripcion: string ="";
-   mes: string[] =[];
-   ano: number[] =[];
+   empresa:string="";
+   fechainicio: Date= new Date();
+   fechafin: Date= new Date();
   
   ngOnInit(): void {
   }
   
   onSubmit(){
-    if(this.puesto.length == 0 || this.descripcion.length == 0 || this.mes[0].length==0 || this.mes[1].length==0 || this.ano[0] ==0 || this.ano[1]==0){
+    if(this.puesto == "" || this.descripcion == "" || this.empresa=="" || this.fechainicio==null){
       alert("Por favor complete todo el formulario")
+      console.log(this.puesto)
+      console.log(this.descripcion)
+      console.log(this.empresa)
     }else{
-      if(this.ano[0] > this.ano[1]){
-        alert("El año de inicio no puede ser mayor al del final!")
-      }
-      else{
+      if(this.fechafin!==null){
+        if(this.fechainicio > this.fechafin){
+          alert("El año de inicio no puede ser mayor al del final!")
+        }
+        else{
+          const newExperience ={
+            puestoExperiencia : this.puesto,
+            descripcionExperiencia : this.descripcion,
+            empresaExperiencia: this.empresa,
+            fechainicioExperiencia : this.fechainicio,
+            fechafinExperiencia : this.fechafin
+          }
+          this.addExperience.emit(newExperience);
+        }
+      }else{
         const newExperience ={
           puestoExperiencia : this.puesto,
           descripcionExperiencia : this.descripcion,
-          fechaInicioExperiencia : {
-            month: this.mes[0],
-            year : this.ano[0]
-          },
-          fechaFinExperiencia : {
-            month: this.mes[1],
-            year : this.ano[1]
-          } 
+          empresaExperiencia: this.empresa,
+          fechainicioExperiencia : this.fechainicio,
+          fechafinExperiencia : this.fechafin
         }
         this.addExperience.emit(newExperience);
-      
       }
     }
     

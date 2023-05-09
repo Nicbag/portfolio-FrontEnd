@@ -15,14 +15,14 @@
     <br>
 
     <div class="container-fluid">
-        <button id="agregar" (click)="mostrarFormulario()" *ngIf="!mostrarformularioadd"></button>
+        <button id="agregar" (click)="mostrarFormulario()" *ngIf="!mostrarformularioadd && authService.logIn()"></button>
         <button id="borrar" *ngIf="mostrarformularioadd" (click)="mostrarFormulario()"></button>
         <app-add-education (addEducation)="nuevoItem($event)" *ngIf="mostrarformularioadd"></app-add-education>    
         <ul type="disc" *ngFor="let edu of datosEducacion, let i=index" data-aos="fade-right">
             <div class="row">
                 <div class="col-lg-6  col-md-11 col-sm-12">
                     <h3 class="display-5" id="text-educacion1-1">{{edu.institucionEducacion}}</h3>
-                    <p class="display-6" id="text-educacion1-2">{{edu.especialidadEduacion}}</p>
+                    <p class="display-6" id="text-educacion1-2">{{edu.especialidadEducacion}}</p>
                     <p id="text-educacion1-3">{{edu.fechainicioEducacion|date: "MMM-YYYY"}} / {{edu.fechafinEducacion| date: "MMM-YYYY"}} </p>
                     <div *ngIf="mostrarEdit[i]">
                         <form (ngSubmit)="onSubmit(edu,i)">
@@ -36,7 +36,7 @@
                                 <br>
                                 <div>
                                     Especialidad:
-                                    <input type="text"name="orientacion" id="text" placeholder="Nombre orientacion" [(ngModel)]="edu.especialidadEduacion">
+                                    <input type="text"name="orientacion" id="text" placeholder="Nombre orientacion" [(ngModel)]="edu.especialidadEducacion">
                                 </div>
                                 <br>
                                 <div>
@@ -56,21 +56,21 @@
                                 <br>
                                 <div>
                                     <input type="submit" class="btn btn-success">
-                                    <button class="btn btn-danger" (click)="mostrarFormularioEdit(i)">Cancelar</button>
+                                    <button class="btn btn-danger" (click)="recargar(i)">Cancelar</button>
                                 </div>
                             </div>
                         </form>    
                     </div>    
                 </div>
                 <div class="col-2 col-md-2  col-sm-2 col-lg-1">
-                    <div class="btn-edit" (click)="mostrarFormularioEdit(i)" *ngIf="!mostrarEdit[i]">
+                    <div class="btn-edit" (click)="mostrarFormularioEdit(i)" *ngIf="!mostrarEdit[i] && authService.logIn()">
                         <a  class="btn-right">
                             <button class="fa fa-pen"></button>
                         </a>
                     </div>   
                 </div>
                 <div class="col-2 col-md-2  col-sm-2 col-lg-1">
-                    <div class="btn-edit" (click)="borrarItem(edu)" *ngIf="!mostrarEdit[i]">
+                    <div class="btn-edit" (click)="borrarItem(edu)" *ngIf="!mostrarEdit[i] && authService.logIn()">
                         <a  class="btn-right">
                             <button id="borrar"></button>
                         </a>

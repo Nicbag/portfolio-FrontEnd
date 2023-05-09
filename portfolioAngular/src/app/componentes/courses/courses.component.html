@@ -15,7 +15,7 @@
     <br>
     
     <div class="container-fluid">
-        <button id="agregar" *ngIf="!mostrarFormularioadd" (click)="mostrarFormulario()"></button>
+        <button id="agregar" *ngIf="!mostrarFormularioadd && authService.logIn()" (click)="mostrarFormulario()"></button>
         <button id="borrar" *ngIf="mostrarFormularioadd" (click)="mostrarFormulario()"></button>
         <app-add-course (addCourse)="agregarCurso($event)" *ngIf="mostrarFormularioadd"></app-add-course>
         <ul type="disc" *ngFor="let cur of datosCurso, let i=index" data-aos="fade-right">
@@ -54,21 +54,21 @@
                             </div>
                             <br>
                             <input type="submit" class="btn btn-success">
-                            <button class="btn btn-danger" (click)="mostrarEdit(i)">Cancelar</button>
+                            <button class="btn btn-danger" (click)="recargar(i)">Cancelar</button>
     
                         </div>
                     </form>   
                 </div>
                 
                 <div class="col-2 col-md-2  col-sm-2 col-lg-1">
-                    <div class="btn-edit" (click)="mostrarEdit(i)" *ngIf="!mostrarFormularioedit[i]">
+                    <div class="btn-edit" (click)="mostrarEdit(i)" *ngIf="!mostrarFormularioedit[i] && authService.logIn()">
                         <a class="btn-right">
                             <button class="fa fa-pen"></button>
                         </a>
                     </div>
                 </div>
                 <div class="col-2 col-md-2  col-sm-2 col-lg-1">
-                    <div class="btn-edit" (click)="borrarItem(cur)" *ngIf="!mostrarFormularioedit[i]">
+                    <div class="btn-edit" (click)="borrarItem(cur)" *ngIf="!mostrarFormularioedit[i] && authService.logIn()">
                         <a  class="btn-right">
                             <button id="borrar"></button>
                         </a>

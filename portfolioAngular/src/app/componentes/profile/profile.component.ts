@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class ProfileComponent  implements OnInit {
   mostrareditPerfil: boolean=false
 
 
-  constructor( private datosporfolio:PortfolioService){
+  constructor( private datosporfolio:PortfolioService, public authService: AutenticacionService){
 
   }
 
@@ -27,6 +28,14 @@ export class ProfileComponent  implements OnInit {
 
   mostrarEditAcerca(){
     this.mostrareditAcercaDe=!this.mostrareditAcercaDe;
+  }
+  recargaracerca(){
+    this.mostrarEditAcerca();
+    location.reload();
+  }
+  recargarperfil(){
+    this.mostrarEditPerfil();
+    location.reload();
   }
 
   onSubmitAcerca( datos: any){

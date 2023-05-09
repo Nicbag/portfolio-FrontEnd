@@ -18,16 +18,14 @@
             <label for="text" class="display-6">Ingrese fecha de inicio</label>
             <br>
             <br> 
-            <input type="text" name="text" id="mes" placeholder="Mes" [(ngModel)]="mes[0]">
-            <input type="number" name="number" id="number" placeholder="Año" [(ngModel)]="ano[0]">
+            <input type="date" name="text" id="año" placeholder="Año" [(ngModel)]="fechainicio">
         </div>
         <br>
         <div>
             <label for="text" class="display-6">Ingrese fecha de finalización</label>
             <br>
             <br> 
-            <input type="text" name="text" id="mes" placeholder="Mes" [(ngModel)]="mes[1]">
-            <input type="number" name="number" id="number" placeholder="Año" [(ngModel)]="ano[1]">
+            <input type="date" name="text" id="año" placeholder="Año" [(ngModel)]="fechafin">
         </div>
         <br>
         <div>
@@ -40,7 +38,6 @@
         <br>
         <div>
             <input type="submit" class="btn btn-success">
-            
         </div>
     </div>    
     

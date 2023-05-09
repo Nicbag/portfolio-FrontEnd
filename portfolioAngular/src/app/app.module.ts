@@ -16,7 +16,7 @@ import { FooterComponent } from './componentes/footer/footer.component';
 import { PortfolioService } from "./servicios/portfolio.service";
 
 import { HttpClientModule } from "@angular/common/http";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AddEducationComponent } from './componentes/education/add-education/add-education.component';
 import { AddExperienceComponent } from './componentes/experience/add-experience/add-experience.component';
 import { AddSkillComponent } from './componentes/skills/add-skill/add-skill.component';
@@ -52,7 +52,8 @@ import { HomeComponent } from './componentes/home/home.component';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,7 +16,7 @@ export class AddSkillComponent implements OnInit {
   }
 
   onSubmit(){
-    if(this.tecnologia.length==0){
+    if(this.tecnologia==""){
       alert("Por favor complete todo el formulario")
     }else{
       if(this.nivel<=0 || this.nivel>100){
@@ -24,7 +24,7 @@ export class AddSkillComponent implements OnInit {
       }else{
         const newSkill={
           nombreDestreza: this.tecnologia,
-          nivelDestreza: this.nivel.toString() +"%"
+          nivelDestreza: this.nivel
         }
         this.addSkill.emit(newSkill);
       }

@@ -16,7 +16,7 @@ export class AddLanguageComponent implements OnInit {
   }
 
   onSubmit(){
-    if(this.idioma.length==0 || this.nivel.length==0){
+    if(this.idioma=="" || this.nivel==""){
       alert("Por favor complete todo el formulario")
     }else{
       if(this.valor<=0 || this.valor>100){
@@ -25,7 +25,7 @@ export class AddLanguageComponent implements OnInit {
         const newLanguage={
           nombreIdioma: this.idioma,
           nivelIdioma: this.nivel,
-          valorIdioma: this.valor.toString() +"%"
+          valornivelIdioma: this.valor
         }
         this.addLanguage.emit(newLanguage);
       }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class CoursesComponent implements OnInit {
   mostrarFormularioadd:boolean=false;
   mostrarFormularioedit: boolean[]= []
 
-  constructor(private datosPortfolio: PortfolioService){}
+  constructor(private datosPortfolio: PortfolioService, public authService: AutenticacionService){}
 
   ngOnInit(): void {
       this.datosPortfolio.verCursos().subscribe(data => {
@@ -25,6 +26,7 @@ export class CoursesComponent implements OnInit {
   borrarItem(cur:any){
     this.datosPortfolio.deleteItemCur(cur).subscribe(any =>{
       this.datosCurso=this.datosCurso.filter((c: { id: any; }) => c.id !== cur.id)
+      location.reload()
     })
   }
 
@@ -32,6 +34,7 @@ export class CoursesComponent implements OnInit {
     this.datosPortfolio.addItemCur(item).subscribe(item =>{
       this.datosCurso.push(item);
       this.mostrarFormularioadd=false;
+      location.reload()
     })
   }
   mostrarFormulario(){
@@ -41,6 +44,12 @@ export class CoursesComponent implements OnInit {
   mostrarEdit(i: number){
     this.mostrarFormularioedit[i]= !this.mostrarFormularioedit[i];
   }
+
+  recargar(i: number){
+    this.mostrarEdit(i);
+    location.reload();
+  }
+  
   revisarfechafin(fechafin:String){
     if(fechafin!=null){
       return false

@@ -12,20 +12,23 @@ export class AddProyectComponent implements OnInit {
   proyecto: string=""
   descripcion: string=""
   institucion: string=""
+  fecha: Date= new Date()
+  link: string=""
   
   ngOnInit(): void {
 
   }
 
   onSubmit(){
-    if(this.institucion.length == 0 || this.proyecto.length == 0 || this.descripcion.length==0){
+    if(this.institucion=="" || this.proyecto == "" || this.descripcion==""){
       alert("Por favor complete todo el formulario");
     }else{
       const newCourse = {
         nombreProyecto: this.proyecto,
         institucionProyecto: this.institucion,
-        descripcionProyecto: this.descripcion
-        
+        descripcionProyecto: this.descripcion,
+        linkProyecto: this.link,
+        fechaProyecto: this.fecha
       }
       this.addProyect.emit(newCourse);
     }

@@ -15,7 +15,7 @@
     <br>
 
     <div class="container-fluid">
-        <button id="agregar" *ngIf="!mostrarFormularioadd" (click)="mostrarFormulario()"></button>
+        <button id="agregar" *ngIf="!mostrarFormularioadd && authService.logIn()" (click)="mostrarFormulario()"></button>
         <button id="borrar" *ngIf="mostrarFormularioadd" (click)="mostrarFormulario()"></button>
         <app-add-proyect (addProyect)="agregarItem($event)" *ngIf="mostrarFormularioadd"></app-add-proyect>
         <ul type="disc" data-aos="fade-right" *ngFor="let pro of datosProyecto, let i=index" >
@@ -63,14 +63,14 @@
                 </div>
                 
                 <div class=" col-2 col-md-2  col-sm-2 col-lg-1">
-                    <div class="btn-edit" (click)="mostrarEdit(i)" *ngIf="!mostrarFormularioedit[i]">
+                    <div class="btn-edit" (click)="mostrarEdit(i)" *ngIf="!mostrarFormularioedit[i] && authService.logIn()">
                         <a  class="btn-right">
                             <button class="fa fa-pen"></button>
                         </a>
                     </div>
                 </div>
                 <div class=" col-2 col-md-2 col-sm-2 col-lg-1">
-                    <div class="btn-edit" (click)="borrarItem(pro)" *ngIf="!mostrarFormularioedit[i]">
+                    <div class="btn-edit" (click)="borrarItem(pro)" *ngIf="!mostrarFormularioedit[i] && authService.logIn()">
                         <a  class="btn-right">
                             <button id="borrar"></button>
                         </a>

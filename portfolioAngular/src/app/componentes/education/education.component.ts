@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Input } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import { AddEducationComponent } from './add-education/add-education.component';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 
 @Component({
   selector: 'app-education',
@@ -18,7 +19,7 @@ export class EducationComponent implements OnInit {
   editmes: string[]=[]
   editano: number[]=[]
 
-  constructor(private datosPortfolio: PortfolioService){}
+  constructor(private datosPortfolio: PortfolioService, public authService: AutenticacionService){}
 
   ngOnInit(): void {
       this.datosPortfolio.verEducaciones().subscribe(data => {
@@ -34,6 +35,10 @@ export class EducationComponent implements OnInit {
   mostrarFormularioEdit(i: number){
     console.log("llegó")
     this.mostrarEdit[i]= !this.mostrarEdit[i];
+  }
+  recargar(i: number){
+    this.mostrarFormularioEdit(i);
+    location.reload();
   }
 
   onSubmit(item:any, i: number){
@@ -55,18 +60,20 @@ export class EducationComponent implements OnInit {
   borrarItem(edu:any){
     console.log(edu);
     this.datosPortfolio.deleteItemEdu(edu).subscribe(any =>{
-      this.datosEducacion=this.datosEducacion.filter((t: { id: any; }) => t.id !== edu.id)
+      this.datosEducacion=this.datosEducacion.filter((t: { id: any; }) => t.id !== edu.idEducacion)
+      location.reload();
     })
   }
 
   mostrarFormulario(){
     this.mostrarformularioadd= !this.mostrarformularioadd;
   }
-
+ 
   nuevoItem( item: any){
     this.datosPortfolio.addItemEdu(item).subscribe( (item) =>{
       this.datosEducacion.push(item)
       this.mostrarformularioadd=false;
+      location.reload();
     })
   }
 

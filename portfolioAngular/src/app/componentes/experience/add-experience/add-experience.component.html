@@ -4,30 +4,35 @@
             <label for="text" class="display-6">Ingrese Puesto</label>
             <br>
             <br> 
-            <input type="text" name="text" id="text" placeholder="Nombre puesto" [(ngModel)]="puesto">
+            <input type="text" id="puesto" name="puesto" placeholder="Nombre puesto" [(ngModel)]="puesto">
+        </div>
+        <br>
+        <div>
+            <label for="text" class="display-6">Ingrese Empersa</label>
+            <br>
+            <br> 
+            <input type="text" id="empresa" name="empresa" placeholder="Nombre empresa" [(ngModel)]="empresa">
         </div>
         <br>
         <div>
             <label for="text" class="display-6">Ingrese descripcion</label>
             <br>
             <br> 
-            <input type="text" name="text" id="text" placeholder="Nombre descripcion" [(ngModel)]="descripcion">
+            <input type="text" id="descripcion" name="descripcion" placeholder="Nombre descripcion" [(ngModel)]="descripcion">
         </div>
         <br>
         <div>
             <label for="text" class="display-6">Ingrese fecha de inicio</label>
             <br>
             <br> 
-            <input type="text" name="text" id="mes" placeholder="Mes" [(ngModel)]="mes[0]">
-            <input type="number" name="number" id="number" placeholder="Año" [(ngModel)]="ano[0]">
+            <input type="date" id="inicio" name="fechaini" placeholder="inicio" [(ngModel)]="fechainicio">
         </div>
         <br>
         <div>
             <label for="text" class="display-6">Ingrese fecha de finalización</label>
             <br>
             <br> 
-            <input type="text" name="text" id="mes" placeholder="Mes" [(ngModel)]="mes[1]">
-            <input type="number" name="number" id="number" placeholder="Año" [(ngModel)]="ano[1]">
+            <input type="date" id="fin" name="fechafin"placeholder="fin" [(ngModel)]="fechafin">
         </div>
         <br>
         <div>

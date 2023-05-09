@@ -11,8 +11,8 @@ export class AddEducationComponent implements OnInit {
   @Output() addEducation : EventEmitter<any> = new EventEmitter();
   institucion: string="";
   especialidad: string="";
-  mes: String[]= ["", ""];
-  ano: number[]=[];
+  fechainicio: Date= new Date();
+  fechafin:Date= new Date();
   foto: string= "";
   
   constructor(){}
@@ -22,30 +22,23 @@ export class AddEducationComponent implements OnInit {
   }
   
   onSubmit(){
-    if(this.institucion.length == 0 || this.especialidad.length == 0 || this.mes[0].length == 0 || this.ano[1] == null || this.mes[1].length == 0 || this.ano[1] == null){
+    if(this.institucion== "" || this.especialidad =="" || this.fechainicio==null || this.fechafin==null){
       alert("Por favor complete todo el formulario");
     }else{
-      if(this.ano[0]> this.ano[1]){
+      if(this.fechainicio> this.fechafin){
         alert("El año de inicio no puede ser menor al del final!")
       }else{
         const newEducation = {
-          establecimiento: this.institucion,
-          orientacion: this.especialidad,
-          fechaInicioEducacion: {
-            month :this.mes[0], 
-            year :this.ano[0]},
-          fechaFinEducacion: {
-            month :this.mes[1], 
-            year: this.ano[1]},
+          institucionEducacion: this.institucion,
+          especialidadEducacion: this.especialidad,
+          fechainicioEducacion: this.fechainicio,
+          fechafinEducacion: this.fechafin,
           fotoEducacion: this.foto  
         }
         this.addEducation.emit(newEducation);
       }
     }
-    
-    
-
-    
+  
 
   }
  

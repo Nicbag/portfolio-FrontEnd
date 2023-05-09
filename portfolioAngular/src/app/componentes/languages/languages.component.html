@@ -15,7 +15,7 @@
     <br>
 
     <div class="container">
-        <button id="agregar" *ngIf="!mostrarFormularioadd" (click)="mostrarFormulario()"></button>
+        <button id="agregar" *ngIf="!mostrarFormularioadd && authService.logIn()" (click)="mostrarFormulario()"></button>
         <button id="borrar" *ngIf="mostrarFormularioadd" (click)="mostrarFormulario()"></button>
         <app-add-language (addLanguage)="agregarItem($event)" *ngIf="mostrarFormularioadd"></app-add-language>    
         <ul *ngFor="let idi of datosIdioma, let i=index">
@@ -34,14 +34,14 @@
                     
                 </div>
                 <div class="col-2 col-md-2  col-sm-2 col-lg-1">
-                    <div class="btn-edit" (click)="mostrarEdit(i)" *ngIf="!mostrarFormularioedit[i]">
+                    <div class="btn-edit" (click)="mostrarEdit(i)" *ngIf="!mostrarFormularioedit[i] && authService.logIn()">
                         <a  class="btn-right">
                             <button class="fa fa-pen"></button>
                         </a>
                     </div>
                 </div>
                 <div class="col-2 col-md-2  col-sm-2 col-lg-1">
-                    <div class="btn-edit" (click)="borrarItem(idi)" *ngIf="!mostrarFormularioedit[i]">
+                    <div class="btn-edit" (click)="borrarItem(idi)" *ngIf="!mostrarFormularioedit[i] && authService.logIn()">
                         <a class="btn-right">
                             <button id="borrar"></button>
                         </a>
@@ -61,13 +61,13 @@
                         </div>
                         <br>
                         <div>
-                            <input type="number" id="edit-progress1" name="valor" [(ngModel)]="idi.valorIdioma" placeholder="valor del nivel">
+                            <input type="number" id="edit-progress1" name="valor" [(ngModel)]="idi.valornivelIdioma" placeholder="valor del nivel">
                             <br>
-                            <small>El valor actual es de {{idi.valorIdioma}} </small>
+                            <small>El valor actual es de {{idi.valornivelIdioma}} </small>
                         </div>
                         <br>
                         <input type="submit" class="btn btn-success">
-                        <button class="btn btn-danger" (click)="mostrarEdit(i)">Cancelar</button>    
+                        <button class="btn btn-danger" (click)="recargar(i)">Cancelar</button>    
                     </div>
                 </form>
             </div>

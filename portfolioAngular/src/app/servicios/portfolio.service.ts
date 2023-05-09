@@ -61,76 +61,95 @@ export class PortfolioService {
 //funciones para eliminar items
 
   deleteItemEdu(item:any): Observable<any>{
-    return this.http.delete<any>(this.apiurl + "/educacion/"+item.id.toString())
+    return this.http.delete<any>(this.apiurl + "/eliminar/educacion/"+item.idEducacion.toString())
   }
+  //probado y andando
 
   deleteItemExp(item:any): Observable<any>{
-    return this.http.delete<any>(this.apiurl + "/experiencia/"+item.id.toString())
+    return this.http.delete<any>(this.apiurl + "/eliminar/experiencia/"+item.idExperiencia.toString())
   }
+  //probado y andando
 
   deleteItemDes(item:any): Observable<any>{
-    return this.http.delete<any>(this.apiurl + "/destrezas/"+item.id.toString())
+    return this.http.delete<any>(this.apiurl + "/eliminar/destreza/"+item.idDestreza.toString())
   }
+  //probado y andando
 
   deleteItemCur(item:any): Observable<any>{
-    return this.http.delete<any>(this.apiurl + "/cursos/"+item.id.toString())
+    return this.http.delete<any>(this.apiurl + "/eliminar/curso/"+item.idcurso)
   }
+  //probado y andando
 
   deleteItemPro(item:any): Observable<any>{
-    return this.http.delete<any>(this.apiurl + "/proyectos/"+item.id.toString())
+    return this.http.delete<any>(this.apiurl + "/eliminar/proyecto/"+item.idProyecto)
   }
+  //probado y andando
 
   deleteItemIdi(item:any): Observable<any>{
-    return this.http.delete<any>(this.apiurl + "/idiomas/"+item.id.toString())
+    return this.http.delete<any>(this.apiurl + "/eliminar/idioma/"+item.idIdioma)
   }
+  //probado y andando
+
 
   //funciones de agregar items
 
   addItemEdu(item: any): Observable<any> {
-    return this.http.post<any>(this.apiurl + "/educacion/",item)
+    return this.http.post<any>(this.apiurl + "/agregar/educacion",item)
   }
+  //probado y andando
+
   addItemExp(item: any): Observable<any> {
-    return this.http.post<any>(this.apiurl + "/experiencia/",item)
+    return this.http.post<any>(this.apiurl + "/agregar/experiencia",item)
   }
+  //probado y andando
+
   addItemDes(item:any): Observable<any> {
-    return this.http.post<any>(this.apiurl + "/destrezas/",item)
+    return this.http.post<any>(this.apiurl + "/agregar/destreza",item)
   }
+  //probado y andando
+
   addItemCur(item:any): Observable<any>{
-    return this.http.post<any>(this.apiurl + "/cursos/",item)
+    return this.http.post<any>(this.apiurl + "/agregar/curso",item)
   }
+  //probado y andando
+
   addItemPro(item: any): Observable<any>{
-    return this.http.post<any>(this.apiurl + "/proyectos/",item)
+    return this.http.post<any>(this.apiurl + "/agregar/proyecto",item)
   }
+  //probado y andando
+
   addItemLan(item:any): Observable<any>{
-    return this.http.post<any>(this.apiurl + "/idiomas/",item)
+    return this.http.post<any>(this.apiurl + "/agregar/idioma",item)
   }
+  //probado y andando
+
 
   //para editar items
 
   editItemEdu(item:any): Observable<any>{
     return this.http.put<any>(this.apiurl + "/modificar/educacion", item)
   }
-  //probado y andando ver tema de cancelar form y reload
+  //probado y andando 
 
   editItemPersona(item: any): Observable<any>{
     return this.http.put<any>(this.apiurl +"/modificar/persona", item);
   }
-  //probado y andando ver tema de cancelar form y reload
+  //probado y andando
 
   editItemExp(item: any): Observable<any>{
     return this.http.put<any>(this.apiurl +"/modificar/experiencia", item)
   }
-  //probado y andado ver tema de cancelar form y reload 
+  //probado y andado  
 
   editItemDes(item:any): Observable<any>{
     return this.http.put<any>(this.apiurl +"/modificar/destreza", item)
   }
-  //probado y andando ver tema de cancelar form y reload
+  //probado y andando 
 
   editItemCur(item:any): Observable<any>{
     return this.http.put<any>(this.apiurl +"/modificar/curso", item)
   }
-  //probado y andando ver tema de cancelar form y reload
+  //probado y andando
   
   editItemPro(item:any): Observable<any>{
     return this.http.put<any>(this.apiurl +"/modificar/proyecto", item)
@@ -140,6 +159,6 @@ export class PortfolioService {
   editItemIdi(item:any): Observable<any>{
     return this.http.put<any>(this.apiurl +"/modificar/idioma", item)
   }
-
+  //probado y andando
 
 }

@@ -23,17 +23,33 @@
     <div class="col-lg-6 col-sm-10">
         <div class="container align-content-center" id="cuadro">
             <div class="card">
-                <form>
+                <form class="m-5" [formGroup]="form" (ngSubmit)="onIngresar($event)">
                     <h1 class="display-2" align="center">Iniciar Sesión</h1>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label display-6">Usuario</label>
-                        <input type="usuario" class="form-control" id="usuario">
+                        <input type="usuario" 
+                        [ngClass]="{'is-invalid':nombreUsuario?.errors && nombreUsuario?.touched,'is-valid':!nombreUsuario?.errors && nombreUsuario?.touched}"
+                        formControlName="nombreUsuario" class="form-control" id="usuario">
+                        
+                        <div *ngIf="nombreUsuario?.errors && nombreUsuario?.touched">
+                            <p *ngIf="nombreUsuario?.hasError('required')" class="text-danger">
+                                El usuario es requerido
+                            </p>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label display-6">Contraseña</label>
-                        <input type="password" class="form-control" id="contra">
+                        <input type="password" 
+                        [ngClass]="{'is-invalid':passwordUsuario?.errors && passwordUsuario?.touched,'is-valid':!passwordUsuario?.errors && passwordUsuario?.touched}"
+                        formControlName="passwordUsuario" class="form-control" id="contra">
+                        
+                        <div *ngIf="passwordUsuario?.errors && passwordUsuario?.touched">
+                            <p *ngIf="passwordUsuario?.hasError('required')" class="text-danger">
+                                La contraseña es requerida
+                            </p>
+                        </div>
                     </div>
-                    <button class="btn btn-success"> Ingresar</button>
+                    <button type="submit" class="btn btn-success"> Ingresar</button>
                 </form>
             </div>
         </div>
