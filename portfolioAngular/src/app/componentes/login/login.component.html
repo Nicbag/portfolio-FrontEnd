@@ -1,58 +1,61 @@
-<header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark sticky-top" >
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Argentina_Programa</a>
-            <button class="navbar-toggler justify-content-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="">
-                            <button class="btn btn-outline-warning">Inicio</button>
-                        </a>
-                    </li>
-                </ul>
+
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark sticky-top" >
+            <div class="container-fluid">
+                <a class="logo" href="">
+                    <img  src="https://i.ibb.co/QNg8rzD/Imagen1.png" alt="Bruno">
+                </a>
+                <a class="navbar-brand" href="#">Argentina_Programa</a>
+                <button class="navbar-toggler justify-content-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="">
+                                <button class="btn btn-outline-warning">Inicio</button>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="row" id="login">
+        <div class="container-fluid" >
+            <div class="container-fluid" id="cuadro">
+                <div class="card">
+                    <form class="m-5" [formGroup]="form" (ngSubmit)="onIngresar($event)">
+                        <h1 class="display-2" align="center">Iniciar Sesión</h1>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label display-6">Usuario</label>
+                            <input type="usuario" 
+                            [ngClass]="{'is-invalid':nombreUsuario?.errors && nombreUsuario?.touched,'is-valid':!nombreUsuario?.errors && nombreUsuario?.touched}"
+                            formControlName="nombreUsuario" class="form-control" id="usuario">
+                            
+                            <div *ngIf="nombreUsuario?.errors && nombreUsuario?.touched">
+                                <p *ngIf="nombreUsuario?.hasError('required')" class="text-danger">
+                                    El usuario es requerido
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label display-6">Contraseña</label>
+                            <input type="password" 
+                            [ngClass]="{'is-invalid':passwordUsuario?.errors && passwordUsuario?.touched,'is-valid':!passwordUsuario?.errors && passwordUsuario?.touched}"
+                            formControlName="passwordUsuario" class="form-control" id="contra">
+                            
+                            <div *ngIf="passwordUsuario?.errors && passwordUsuario?.touched">
+                                <p *ngIf="passwordUsuario?.hasError('required')" class="text-danger">
+                                    La contraseña es requerida
+                                </p>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success"> Ingresar</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </nav>
-</header>
-<div class="row" id="login">
-    <div class="col-lg-3 col-sm-1"></div>
-    <div class="col-lg-6 col-sm-10">
-        <div class="container align-content-center" id="cuadro">
-            <div class="card">
-                <form class="m-5" [formGroup]="form" (ngSubmit)="onIngresar($event)">
-                    <h1 class="display-2" align="center">Iniciar Sesión</h1>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label display-6">Usuario</label>
-                        <input type="usuario" 
-                        [ngClass]="{'is-invalid':nombreUsuario?.errors && nombreUsuario?.touched,'is-valid':!nombreUsuario?.errors && nombreUsuario?.touched}"
-                        formControlName="nombreUsuario" class="form-control" id="usuario">
-                        
-                        <div *ngIf="nombreUsuario?.errors && nombreUsuario?.touched">
-                            <p *ngIf="nombreUsuario?.hasError('required')" class="text-danger">
-                                El usuario es requerido
-                            </p>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label display-6">Contraseña</label>
-                        <input type="password" 
-                        [ngClass]="{'is-invalid':passwordUsuario?.errors && passwordUsuario?.touched,'is-valid':!passwordUsuario?.errors && passwordUsuario?.touched}"
-                        formControlName="passwordUsuario" class="form-control" id="contra">
-                        
-                        <div *ngIf="passwordUsuario?.errors && passwordUsuario?.touched">
-                            <p *ngIf="passwordUsuario?.hasError('required')" class="text-danger">
-                                La contraseña es requerida
-                            </p>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-success"> Ingresar</button>
-                </form>
-            </div>
-        </div>
+        
     </div>
-    <div class="col-lg-3 col-sm-1"></div>
-</div>

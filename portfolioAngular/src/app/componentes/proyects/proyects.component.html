@@ -27,6 +27,8 @@
                     
                     <p id="text-proyecto1-3">{{pro.descripcionProyecto}}</p>
                     <p>Fecha de realización del proyecto: {{pro.fechaProyecto| date: "MMM-yyyy"}}</p>
+                    <br>
+                    <p>Link del proyecto: {{pro.linkProyecto}}</p>
                     
                     <form (ngSubmit)="onSubmit(pro,i)" *ngIf="mostrarFormularioedit[i]">
                         <div class="form-control">

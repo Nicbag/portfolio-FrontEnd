@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
 
   onIngresar(event:Event){
     event.preventDefault
-    console.log(this.form.value)
     this.AutService.login(this.form.value)
   }
 }

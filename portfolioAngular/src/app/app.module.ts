@@ -25,6 +25,7 @@ import { AddProyectComponent } from './componentes/proyects/add-proyect/add-proy
 import { AddLanguageComponent } from './componentes/languages/add-language/add-language.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { HomeComponent } from './componentes/home/home.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,7 @@ import { HomeComponent } from './componentes/home/home.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -16,7 +16,6 @@ export class SkillsComponent  implements OnInit {
 
   ngOnInit(): void {
       this.datosPortfolio.verDestrezas().subscribe(data => {
-        console.log(data);
         this.datosDestreza=data;
         this.mostrarFormularioedit.length=this.datosDestreza.length
         for(let i of this.mostrarFormularioedit){

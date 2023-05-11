@@ -23,7 +23,6 @@ export class EducationComponent implements OnInit {
 
   ngOnInit(): void {
       this.datosPortfolio.verEducaciones().subscribe(data => {
-        console.log(data);
         this.datosEducacion=data;
         this.mostrarEdit.length= this.datosEducacion.length
         for(let i of this.mostrarEdit){
@@ -33,7 +32,6 @@ export class EducationComponent implements OnInit {
   }
 
   mostrarFormularioEdit(i: number){
-    console.log("llegó")
     this.mostrarEdit[i]= !this.mostrarEdit[i];
   }
   recargar(i: number){
@@ -58,7 +56,6 @@ export class EducationComponent implements OnInit {
 
   //acordate que es el idEducacion el que hay que mandar a la api
   borrarItem(edu:any){
-    console.log(edu);
     this.datosPortfolio.deleteItemEdu(edu).subscribe(any =>{
       this.datosEducacion=this.datosEducacion.filter((t: { id: any; }) => t.id !== edu.idEducacion)
       location.reload();

@@ -21,7 +21,6 @@ export class ProfileComponent  implements OnInit {
 
   ngOnInit(): void {
       this.datosporfolio.verPersona().subscribe(data =>{
-        console.log(data);
         this.datosperfil=data;
       })
   }

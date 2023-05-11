@@ -13,7 +13,7 @@ const httpOptions ={
 
 export class PortfolioService {
   
-  private apiurl= "http://localhost:8080/api"
+  private apiurl= "https://portfolio-backend-o58h.onrender.com/api"
 
   constructor(private http:HttpClient) { }
 

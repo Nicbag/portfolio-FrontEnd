@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AutenticacionService {
 
-  apiurl="http://localhost:8080/api"
+  apiurl="https://portfolio-backend-o58h.onrender.com/api"
   currentUserSubject: BehaviorSubject<any>
 
   constructor(private http: HttpClient, private ruta: Router) { 

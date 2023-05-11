@@ -1,27 +1,101 @@
+@media screen and (max-width: 767px) {
+    #login{
+        background-image:url('https://mdbcdn.b-cdn.net/img/new/slides/003.webp');
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        height: 105vh;
+        width: 103%;
+    }
+    .card{
+        height: 50%;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+        border-style: solid;
+        box-shadow: 24%;
+        margin-top: 120px;
+        margin-left: 20px;  
+    }
+    #cuadro{
+        display: flex;
+        justify-content: center;
+        margin-top: 10%;
+        
+    }
 
-#login{
-    background-image:url("/src/assets/fotofondoiniciosesion.jpg");
-    background-size:auto;
-    background-repeat: repeat;
-    background-attachment: fixed;
-    
+    form{
+        margin-bottom: 5%;
+    }
 }
-.card{
-    height: 50%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-top-left-radius: 40px;
-    border-bottom-right-radius: 40px;
-    border-style: solid;
-    box-shadow: 24%;  
+@media screen and (min-width: 767px){
+    #login{
+        background-image:url('https://mdbcdn.b-cdn.net/img/new/slides/003.webp');
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        height: 290vh;
+        width:209vh;
+        background-position:center;
+        
+    }
+    .card{
+        height: 50%;
+        width: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+        border-style: solid;
+        box-shadow: 24%;
+        margin-top: 80px;  
+    }
+    #cuadro{
+        display: flex;
+        justify-content: center;
+        margin-top: 10%;
+        
+    }
+
+    form{
+        margin-bottom: 5%;
+    }
 }
-#cuadro{
-    display: flex;
-    justify-content: center;
-    margin-top: 10%;
-}
-form{
-    margin-bottom: 5%;
+@media screen and (min-width: 1200px){
+    #login{
+        background-image:url('https://mdbcdn.b-cdn.net/img/new/slides/003.webp');
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        height: 130vh;
+        width:209.5vh;
+        background-position:center;
+        
+    }
+    .card{
+        height: 50%;
+        width: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+        border-style: solid;
+        box-shadow: 24%;
+        margin-top: 60px;  
+    }
+    #cuadro{
+        display: flex;
+        justify-content: center;
+        margin-top: 10%;
+        
+    }
+
+    form{
+        margin-bottom: 5%;
+    }
 }
